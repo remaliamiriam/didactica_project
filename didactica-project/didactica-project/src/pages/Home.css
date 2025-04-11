@@ -1,0 +1,75 @@
+
+.container-fluid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 60px); 
+  padding: 2rem;
+  text-align: center;
+  width: 100%;
+}
+
+.hero-title {
+  font-size: 3rem;
+  font-weight: bold;
+  color: white;
+  animation: fadeIn 2s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+
+.hero-button {
+  /*font-size: 1.25rem;
+  padding: 10px 30px;
+  background-color: ##db0092;
+  border: none;
+  border-radius: 25px;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.3s ease;*/
+  font-size: 1.1rem;
+  padding: 10px 20px;
+  color: white !important; /* Textul butoanelor va fi alb pentru a fi vizibil pe fundalul transparent */
+
+  border-radius: 20px; /* Colțuri rotunjite */
+}
+
+.hero-button:hover {
+ /* transform: scale(1.1);*/
+ background: linear-gradient(135deg, #8e44ad, #5e3370); /* Gradient lila închis */
+ border: 1px solid #c77dff; /* Chenar neon lila */
+ color: white !important;
+ box-shadow: 0 0 10px #c77dff, 0 0 20px #c77dff; /* Efect de neon */
+ transition: all 0.2s ease-in-out;
+}
+  
+.typing-animation {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 4rem;
+  color: white;
+  width: 0;                         /* Setăm inițial lățimea pe 0 */
+  overflow: hidden;                 /* Ascundem literele care nu au apărut */
+  white-space: nowrap;             /* Nu permite trecerea pe o linie nouă */
+  border-right: 3px solid white;   /* Cursorul care clipește */
+  animation: typing 3s steps(25, end) forwards, blink-caret 0.75s step-end infinite;
+}
+
+/* ANIMAȚIE SCRIERE */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+/* ANIMAȚIE CURSOR CLIPITOR */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: white }
+}
