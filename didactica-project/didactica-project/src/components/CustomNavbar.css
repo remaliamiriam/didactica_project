@@ -1,42 +1,36 @@
-/* CustomNavbar.css */
-
 .navbar {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 10;
-  background-color: transparent !important; /* Asigură-te că fundalul este transparent */
-  box-shadow: none !important; /* Elimină orice umbră */
+  background-color: transparent !important; /* Asigură-te că navbar-ul este transparent */
+  box-shadow: none !important; /* Elimină umbra */
 }
 
 .navbar-toggler-icon {
-  background-color: white; /* Modifică iconița hamburger pentru vizibilitate pe fundal transparent */
+  background-color: white;
 }
 
 .navbar-nav {
-  margin-right: 20px;  /* spațiu între nav și marginea dreaptă */
+  margin-right: 20px;
 }
 
 .nav-link {
   font-size: 1.1rem;
   padding: 10px 20px;
-  color: white !important; /* Textul butoanelor va fi alb pentru a fi vizibil pe fundalul transparent */
-
-  border-radius: 20px; /* Colțuri rotunjite */
+  color: white !important; /* Asigură-te că textul este alb pe navbar transparent */
+  border-radius: 20px;
 }
 
 .nav-link:hover {
-  background: linear-gradient(135deg, #8e44ad, #5e3370); /* Gradient lila închis */
-  border: 1px solid #c77dff; /* Chenar neon lila */
+  background: linear-gradient(135deg, #8e44ad, #5e3370);
+  border: 1px solid #c77dff;
   color: white !important;
-  box-shadow: 0 0 10px #c77dff, 0 0 20px #c77dff; /* Efect de neon */
+  box-shadow: 0 0 10px #c77dff, 0 0 20px #c77dff;
   transition: all 0.2s ease-in-out;
 }
 
-
-
-/* Adăugăm un spațiu între navbar și restul paginii */
 body {
-  padding-top: 60px;  /* Asigură-te că textul nu se ascunde sub navbar */
+  padding-top: 60px;  /* Corectăm spațiul pentru navbar */
 }
