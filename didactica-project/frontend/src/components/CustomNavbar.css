@@ -34,3 +34,18 @@
 body {
   padding-top: 60px;  /* Corectăm spațiul pentru navbar */
 }
+
+.theme-toggle-btn {
+  font-size: 0.9rem;
+  padding: 6px 12px;
+  border-radius: 20px;
+  transition: all 0.3s ease-in-out;
+}
+
+.theme-toggle-btn:hover {
+  background-color: #8e44ad;
+  border-color: #c77dff;
+  box-shadow: 0 0 10px #c77dff;
+  color: white;
+}
+

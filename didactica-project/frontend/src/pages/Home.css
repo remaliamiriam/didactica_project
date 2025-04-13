@@ -1,0 +1,39 @@
+.container-fluid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 2rem;
+  text-align: center;
+  width: 100%;
+  background: inherit;  /* Moștenește fundalul animat de la index.css */
+}
+
+
+.hero-title {
+  font-size: 3rem;
+  font-weight: bold;
+  color: white;
+}
+
+.hero-button {
+  font-size: 1.1rem;
+  padding: 10px 20px;
+  color: white !important;
+  border-radius: 20px;
+  transition: background-color 0.3s ease;
+  background-color: #1a1a1a;
+}
+
+.hero-button:hover {
+  background: linear-gradient(135deg, #8e44ad, #5e3370);
+  border: 1px solid #c77dff;
+  color: white !important;
+  box-shadow: 0 0 10px #c77dff, 0 0 20px #c77dff;
+}
+
+/* Adaugă în Home.css */
+.spline-container {
+  pointer-events: none; /* important pentru ca spline-ul să nu blocheze interacțiunea cu alte elemente */
+}
+
