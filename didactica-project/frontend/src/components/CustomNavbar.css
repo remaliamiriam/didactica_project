@@ -49,3 +49,8 @@ body {
   color: white;
 }
 
+
+.navbar .btn-outline-info {
+  font-weight: 500;
+}
+

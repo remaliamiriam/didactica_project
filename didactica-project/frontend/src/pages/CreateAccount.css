@@ -12,4 +12,53 @@
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
   }
+  .create-account-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #000BCB, #DB0091);
+  }
+  
+  .glass-panel {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    color: white;
+    width: 90%;
+    max-width: 400px;
+  }
+  
+  .glass-panel input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+  }
+  
+  .glass-panel button {
+    margin-top: 20px;
+    padding: 10px 30px;
+    font-size: 16px;
+    background-color: #ffffff55;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .glass-panel button:hover {
+    background-color: #ffffff88;
+  }
+  
+  .error-text {
+    color: #ffc107;
+    margin-top: 10px;
+  }
   

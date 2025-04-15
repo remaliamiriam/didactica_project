@@ -1,77 +1,77 @@
-import React, { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import './CreateAccount.css';
 
 const CreateAccount = () => {
+  const [nickname, setNickname] = useState('');
+  const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
-    const createAccount = async () => {
-      const urlParams = new URLSearchParams(window.location.search);
-      const nickname = urlParams.get('nickname');
+    const params = new URLSearchParams(location.search);
+    const nicknameFromUrl = params.get('nickname');
+    if (nicknameFromUrl) {
+      setNickname(nicknameFromUrl);
+    }
+  }, [location.search]);
 
-      if (!nickname) {
-        console.error('Nickname lipsă');
-        navigate('/');
-        return;
-      }
+  const handleSubmit = async () => {
+    setError('');
+    if (!nickname.trim()) {
+      setError('Te rugăm să introduci un nickname.');
+      return;
+    }
 
-      try {
-        // Verifică dacă nickname-ul există deja în backend
-        const checkResponse = await fetch('http://localhost:4000/check-nickname', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ nickname }),
-        });
+    setLoading(true);
+    try {
+      const response = await fetch('http://localhost:4000/users/create-nickname-account', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ nickname }),
+        credentials: 'include',
+      });
 
-        const checkData = await checkResponse.json();
+      const data = await response.json();
 
-        if (checkResponse.ok) {
-          if (checkData.exists) {
-            // Dacă nickname-ul există, redirecționează la profil
-            console.log('Nickname existent, redirecționare la profil...');
-            navigate('/profile-home');
-          } else {
-            // Dacă nickname-ul nu există, creează contul
-            const createResponse = await fetch('http://localhost:4000/create-account', {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json',
-              },
-              body: JSON.stringify({ nickname }),
-            });
-
-            const createData = await createResponse.json();
-
-            if (createResponse.ok) {
-              console.log('Cont creat cu succes:', createData);
-              localStorage.setItem('nickname', nickname); // Salvăm nickname-ul în localStorage
-              navigate('/profile-home'); // Redirecționează la pagina de profil
-            } else {
-              console.error('Eroare la crearea contului:', createData.error);
-              navigate('/');
-            }
-          }
+      if (response.ok) {
+        if (data.user) {
+          localStorage.setItem('user', JSON.stringify(data.user));
+          navigate('/profile-home');
+          console.log('Răspuns backend:', data);
         } else {
-          console.error('Eroare la verificarea nickname-ului:', checkData.error);
-          navigate('/');
+          setError('Contul nu a fost creat corespunzător.');
         }
-      } catch (err) {
-        console.error('Eroare de rețea:', err);
-        navigate('/');
+      } else {
+        setError(data.error || 'A apărut o eroare.');
       }
-    };
 
-    createAccount();
-  }, [navigate]);
+    } catch (err) {
+      setError('Eroare de rețea. Încearcă din nou.');
+      console.error('Eroare de rețea:', err);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
-    <div className="create-account-container">
-      <h2>Se creează contul tău...</h2>
-      <div className="loader"></div>
-      <p>Te rugăm să aștepți câteva secunde.</p>
+    <div className="create-account-page">
+      <div className="glass-panel">
+        <h2>Crează un cont nou</h2>
+        <input
+          type="text"
+          placeholder="Introdu nickname-ul"
+          value={nickname}
+          onChange={(e) => setNickname(e.target.value)}
+        />
+        {error && <p className="error-text">{error}</p>}
+        <button onClick={handleSubmit} disabled={loading}>
+          {loading ? 'Se creează...' : 'Continuă'}
+        </button>
+      </div>
     </div>
   );
 };

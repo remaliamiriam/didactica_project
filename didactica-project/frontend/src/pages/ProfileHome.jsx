@@ -1,23 +1,35 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { getLoggedInUser, logout } from '../utils/auth';
 
-const Profile = () => {
-  const nickname = localStorage.getItem('nickname');
+const ProfileHome = () => {
+  const navigate = useNavigate();
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const currentUser = getLoggedInUser();
+    if (!currentUser) {
+      navigate('/'); // Redirecționează dacă nu e logat
+    } else {
+      setUser(currentUser);
+    }
+  }, [navigate]);
+
+  const handleLogout = () => {
+    logout();
+    navigate('/');
+  };
 
   return (
-    <div className="profile-page">
-      {nickname ? (
+    <div>
+      {user && (
         <>
-          <h1>Welcome, {nickname}!</h1>
-          <p>Your profile page.</p>
-        </>
-      ) : (
-        <>
-          <h1>Profil inexistent</h1>
-          <p>Te rugăm să revii la pagina principală și să introduci un nickname valid.</p>
+          <h1>Bine ai revenit, {user.nickname}!</h1>
+          <button onClick={handleLogout}>Logout</button>
         </>
       )}
     </div>
   );
 };
 
-export default Profile;
+export default ProfileHome;
