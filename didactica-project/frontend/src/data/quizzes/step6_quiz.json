@@ -1,0 +1,28 @@
+[
+    {
+      "question": "Ce trebuie să caracterizeze procesul de evaluare?",
+      "options": ["Să fie spontan și rapid", "Să fie obiectiv și transparent", "Să fie subiectiv și general", "Să se bazeze pe impresii"],
+      "correctAnswer": "Să fie obiectiv și transparent"
+    },
+    {
+      "question": "De ce este important feedback-ul oferit elevilor?",
+      "options": [
+        "Pentru a oferi scuze",
+        "Pentru a-i face să se simtă bine",
+        "Pentru a-i ajuta să învețe și să se îmbunătățească",
+        "Pentru a justifica notele"
+      ],
+      "correctAnswer": "Pentru a-i ajuta să învețe și să se îmbunătățească"
+    },
+    {
+      "question": "Cum trebuie să fie evaluarea unui test bine construit?",
+      "options": [
+        "Imprevizibilă și variabilă",
+        "Transparentă și bazată pe un sistem clar de punctaj",
+        "Rapidă și scurtă",
+        "Doar calitativă, fără punctaj"
+      ],
+      "correctAnswer": "Transparentă și bazată pe un sistem clar de punctaj"
+    }
+  ]
+  

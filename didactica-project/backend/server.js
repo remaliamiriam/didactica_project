@@ -4,6 +4,10 @@ import express from 'express';
 import cors from 'cors';
 import usersRoutes from './routes/users.js';
 import { createClient } from '@supabase/supabase-js';
+import jwt from 'jsonwebtoken';
+import step1Routes from './routes/step1.js';
+import leaderboardRoutes from './routes/leaderboard.js';
+import statisticsRoutes from './routes/statistics.js';
 
 const supabase = createClient(
   process.env.SUPABASE_URL,
@@ -16,8 +20,6 @@ console.log('SUPABASE_KEY:', process.env.SUPABASE_KEY);
 const app = express();
 const PORT = 4000;
 
-
-
 // Configurare CORS cu cookies
 app.use(cors({
   origin: 'http://localhost:3000', // Frontend-ul tău
@@ -27,28 +29,43 @@ app.use(cors({
 }));
 
 app.use(express.json());
-// 🧭 Conectează rutele
-app.use('/users', usersRoutes);
 
-//res.header('Access-Control-Allow-Credentials', 'true');
+// Middleware pentru autentificare token
+const authenticateToken = (req, res, next) => {
+  const authHeader = req.headers['authorization'];
+  const token = authHeader && authHeader.split(' ')[1]; // Bearer token
 
-// ✅ Adaugă ruta check-nickname direct aici dacă n-ai făcut-o deja:
-app.post('/check-nickname', async (req, res) => {
-  const { nickname } = req.body;
-  if (!nickname || nickname.trim() === '') {
-    return res.status(400).json({ error: 'Nickname-ul este necesar.' });
+  if (!token) {
+    return res.status(401).json({ error: 'Token lipsă.' });
   }
 
-  const { data: existingUser } = await supabase
-    .from('users')
-    .select('*')
-    .eq('nickname', nickname)
-    .single();
+  jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
+    if (err) return res.status(403).json({ error: 'Token invalid sau expirat.' });
+    req.user = user;
+    next();
+  });
+};
 
-  res.status(200).json({ exists: !!existingUser });
+// Conectează rutele
+app.use('/users', usersRoutes);
+
+// Ruta protejată de autentificare
+app.get('/secure-data', authenticateToken, (req, res) => {
+  res.json({ message: `Salut ${req.user.nickname}, ai acces la datele secrete!` });
 });
 
-// 🔁 Pornește serverul
+app.use('/api/leaderboard', leaderboardRoutes);
+app.use('/api/statistics', statisticsRoutes);
+app.use('/api/step1', step1Routes);
+
+// Pornește serverul
 app.listen(PORT, () => {
   console.log(`✅ Serverul rulează pe http://localhost:${PORT}`);
 });
+
+app.use((req, res, next) => {
+  console.log(`➡️ Cerere necunoscută către: ${req.method} ${req.originalUrl}`);
+  res.status(404).send('Rută inexistentă');
+});
+
+

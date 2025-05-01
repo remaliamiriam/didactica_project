@@ -1,0 +1,33 @@
+[
+    {
+      "question": "Ce tip de item este mai potrivit pentru evaluarea gândirii critice?",
+      "options": ["Item cu răspuns închis", "Item cu răspuns deschis", "Item cu răspuns binar", "Item de tip grilă"],
+      "correctAnswer": "Item cu răspuns deschis"
+    },
+    {
+      "question": "Care este un avantaj al itemilor cu răspuns închis?",
+      "options": ["Evaluarea competențelor complexe", "Permite formularea de argumente", "Se corectează rapid", "Oferă feedback detaliat"],
+      "correctAnswer": "Se corectează rapid"
+    },
+    {
+      "question": "Ce tip de întrebare este: „Explică procesul fotosintezei”?",
+      "options": ["Item cu răspuns închis", "Item de tip adevărat/fals", "Item cu alegere multiplă", "Item cu răspuns deschis"],
+      "correctAnswer": "Item cu răspuns deschis"
+    },
+    {
+      "question": "Pentru verificarea cunoștințelor de bază, cel mai eficient este să folosești:",
+      "options": ["Itemi cu răspuns deschis", "Eseuri", "Itemi cu răspuns închis", "Proiecte individuale"],
+      "correctAnswer": "Itemi cu răspuns închis"
+    },
+    {
+      "question": "Un exemplu de item cu răspuns închis este:",
+      "options": [
+        "Descrie trăsăturile unui personaj din romanul X.",
+        "Care dintre următoarele afirmații este corectă? A) X B) Y C) Z D) W",
+        "Explică în câteva propoziții o lege fizică.",
+        "Argumentează opinia ta despre tema poeziei."
+      ],
+      "correctAnswer": "Care dintre următoarele afirmații este corectă? A) X B) Y C) Z D) W"
+    }
+  ]
+  

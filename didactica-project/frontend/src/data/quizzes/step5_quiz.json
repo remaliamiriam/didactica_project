@@ -1,0 +1,33 @@
+[
+    {
+      "question": "Ce este un pre-test?",
+      "options": [
+        "O simulare a testului final aplicată unui grup mic",
+        "O probă scrisă finală",
+        "Un test de cultură generală",
+        "O fișă de lucru fără punctaj"
+      ],
+      "correctAnswer": "O simulare a testului final aplicată unui grup mic"
+    },
+    {
+      "question": "Care este un scop principal al pre-testului?",
+      "options": [
+        "Să notezi elevii definitiv",
+        "Să analizezi claritatea și dificultatea itemilor",
+        "Să testezi viteza de scriere a elevilor",
+        "Să înveți elevii regulile clasei"
+      ],
+      "correctAnswer": "Să analizezi claritatea și dificultatea itemilor"
+    },
+    {
+      "question": "Ce ar trebui să faci după ce aplici pre-testul?",
+      "options": [
+        "Să îl notezi și să-l arunci",
+        "Să îl prezinți în fața clasei",
+        "Să ajustezi testul pe baza feedback-ului",
+        "Să refaci toate întrebările"
+      ],
+      "correctAnswer": "Să ajustezi testul pe baza feedback-ului"
+    }
+  ]
+  

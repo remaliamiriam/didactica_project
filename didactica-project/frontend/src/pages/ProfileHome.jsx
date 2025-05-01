@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { getLoggedInUser, logout } from '../utils/auth';
+import { getLoggedInUser } from '../utils/auth';
+import Sidebar from '../components/Sidebar';
+import ProfileContent from '../components/ProfileContent';
+import SimpleChatbot from '../components/SimpleChatbot';
+import { motion } from 'framer-motion';
+import './ProfileHome.css';
 
 const ProfileHome = () => {
   const navigate = useNavigate();
@@ -9,26 +14,26 @@ const ProfileHome = () => {
   useEffect(() => {
     const currentUser = getLoggedInUser();
     if (!currentUser) {
-      navigate('/'); // Redirecționează dacă nu e logat
+      navigate('/');
     } else {
       setUser(currentUser);
     }
   }, [navigate]);
 
-  const handleLogout = () => {
-    logout();
-    navigate('/');
-  };
-
   return (
-    <div>
-      {user && (
-        <>
-          <h1>Bine ai revenit, {user.nickname}!</h1>
-          <button onClick={handleLogout}>Logout</button>
-        </>
-      )}
-    </div>
+    <motion.div
+      className="d-flex profile-container"
+      style={{ height: '100vh' }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+    >
+      <Sidebar />
+      <div className="flex-grow-1 bg-light overflow-auto">
+        {user && <ProfileContent user={user} />}
+        <SimpleChatbot />
+      </div>
+    </motion.div>
   );
 };
 

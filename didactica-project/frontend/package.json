@@ -10,14 +10,18 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@react-hook/window-size": "^3.1.1",
     "@supabase/supabase-js": "^2.49.4",
     "animate.css": "^4.1.1",
     "body-parser": "^2.2.0",
     "bootstrap": "^5.3.5",
+    "canvas-confetti": "^1.9.3",
     "cors": "^2.8.5",
     "express": "^5.1.0",
+    "framer-motion": "^12.7.3",
     "react": "^19.0.0",
     "react-bootstrap": "^2.10.9",
+    "react-confetti": "^6.4.0",
     "react-dom": "^19.0.0",
     "react-on-screen": "^2.1.1",
     "react-router-dom": "^7.5.0"

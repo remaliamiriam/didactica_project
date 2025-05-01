@@ -1,0 +1,40 @@
+{
+    "stepTitle": "2. Stabilirea tipurilor de itemi",
+    "steps": [
+      {
+        "id": 1,
+        "title": "Itemi cu răspuns deschis",
+        "description": "Acest tip de item permite evaluarea competențelor complexe, având răspunsuri libere care pot fi scurte sau lungi.",
+        "example": {
+          "correct": "Explică în câteva propoziții ce înseamnă teorema lui Pitagora.",
+          "incorrect": "Care este capitala Franței?"
+        },
+        "examples": [
+          "„Explică în câteva propoziții ce înseamnă teorema lui Pitagora.”",
+          "„Descrie procesul fotosintezei.”"
+        ],
+        "checklist": [
+          "Evaluați gândirea critică",
+          "Permite feedback detaliat"
+        ]
+      },
+      {
+        "id": 2,
+        "title": "Itemi cu răspuns închis",
+        "description": "Acest tip de item este corectat rapid și este bun pentru testarea cunoștințelor de bază.",
+        "example": {
+          "correct": "Este corectă următoarea afirmație? (Adevărat/Fals) – 'Toți câinii sunt mamifere.'",
+          "incorrect": "Ce capitală are țara X?"
+        },
+        "examples": [
+          "„Este corectă următoarea afirmație? (Adevărat/Fals) – 'Toți câinii sunt mamifere.'”",
+          "„Care dintre următoarele afirmații este corectă? A) X B) Y C) Z D) W”"
+        ],
+        "checklist": [
+          "Corectare rapidă",
+          "Bun pentru verificări scurte"
+        ]
+      }
+    ]
+  }
+  

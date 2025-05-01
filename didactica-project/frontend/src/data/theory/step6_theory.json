@@ -1,0 +1,26 @@
+{
+    "stepTitle": "Realizarea evaluării",
+    "steps": [
+      {
+        "id": 1,
+        "title": "Ce înseamnă aceasta?",
+        "description": "Evaluarea trebuie să fie realizată într-un mod obiectiv și transparent, astfel încât elevii să știe exact ce se așteaptă de la ei și cum vor fi evaluați."
+      },
+      {
+        "id": 2,
+        "title": "Fii transparent",
+        "description": "Asigură-te că elevii înțeleg ce criterii sunt folosite pentru evaluare și care sunt așteptările. Comunică clar punctajul și modul de corectare."
+      },
+      {
+        "id": 3,
+        "title": "Fii obiectiv",
+        "description": "Evaluarea trebuie să fie bazată pe un sistem clar de punctaj și pe fapte, nu pe opinii personale sau impresii subiective."
+      },
+      {
+        "id": 4,
+        "title": "Oferă feedback constructiv",
+        "description": "Scopul evaluării nu este doar notarea, ci și învățarea. Oferă explicații clare, evidențiază punctele forte și sugerează modalități de îmbunătățire."
+      }
+    ]
+  }
+  

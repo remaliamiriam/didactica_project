@@ -1,6 +1,7 @@
 import express from 'express';
 import { createClient } from '@supabase/supabase-js';
 import dotenv from 'dotenv';
+import jwt from 'jsonwebtoken';
 dotenv.config();
 const router = express.Router();
 
@@ -10,9 +11,8 @@ const supabase = createClient(
   process.env.SUPABASE_KEY
 );
 
-// ✅ Creare cont doar pe baza nickname-ului (fără parolă)
+// Creare cont doar pe baza nickname-ului (fără parolă)
 router.post('/create-nickname-account', async (req, res) => {
-  console.log('Cerere POST primită: ', req.body);
   const { nickname } = req.body;
 
   if (!nickname || nickname.trim() === '') {
@@ -26,18 +26,26 @@ router.post('/create-nickname-account', async (req, res) => {
     .eq('nickname', nickname)
     .maybeSingle(); // 👈 Asta returnează un singur rând sau nimic
 
-    if (existingUserError) {
-      console.error('Eroare verificare utilizator:', existingUserError);
-      return res.status(500).json({ 
-        error: 'Eroare la verificarea utilizatorului.', 
-        details: existingUserError.message || existingUserError 
-      });
-    }
-    
+  if (existingUserError) {
+    return res.status(500).json({ 
+      error: 'Eroare la verificarea utilizatorului.', 
+      details: existingUserError.message || existingUserError 
+    });
+  }
 
   if (existingUser) {
-    console.log('Utilizator deja existent:', existingUser);
-    return res.status(200).json({ message: 'Utilizator deja existent.', user: existingUser });
+    // Generează token temporar (valabil 24h)
+    const token = jwt.sign(
+      { id: existingUser.id, nickname: existingUser.nickname },
+      process.env.JWT_SECRET,
+      { expiresIn: '24h' }
+    );
+
+    return res.status(200).json({ 
+      message: 'Utilizator deja existent.', 
+      user: existingUser,
+      token
+    });
   }
 
   // Creare cont fără parolă
@@ -47,16 +55,23 @@ router.post('/create-nickname-account', async (req, res) => {
     .select(); // 👈 Asta forțează returnarea rândului inserat
 
   if (error) {
-    console.error('Eroare la crearea contului:', error);
     return res.status(500).json({ error: 'Eroare la crearea contului.', details: error.message });
   }
 
-  if (!data || data.length === 0) {
-    return res.status(500).json({ error: 'Eroare la crearea contului.' });
-  }
+  const newUser = data[0];
 
-  console.log('Cont creat cu succes:', data[0]);
-  res.status(201).json({ message: 'Cont creat cu succes!', user: data[0] });
+  // Generează token temporar (valabil 24h)
+  const token = jwt.sign(
+    { id: newUser.id, nickname: newUser.nickname },
+    process.env.JWT_SECRET,
+    { expiresIn: '24h' }
+  );
+
+  return res.status(201).json({ 
+    message: 'Cont creat cu succes!', 
+    user: newUser, 
+    token
+  });
 });
 
 export default router;

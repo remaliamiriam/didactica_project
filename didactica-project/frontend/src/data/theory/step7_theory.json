@@ -1,0 +1,34 @@
+{
+    "stepTitle": "Analiza și interpretarea rezultatelor",
+    "steps": [
+      {
+        "id": 1,
+        "title": "Ce înseamnă aceasta?",
+        "description": "După administrarea testului, rezultatele trebuie analizate și interpretate într-un mod clar, astfel încât elevii să poată înțelege ce au făcut bine și ce trebuie să îmbunătățească."
+      },
+      {
+        "id": 2,
+        "title": "Analizează rezultatele pe criterii",
+        "description": "Dacă testul a inclus mai multe tipuri de întrebări sau subiecte, împărțiți rezultatele pe categorii pentru a identifica punctele tari și cele slabe."
+      },
+      {
+        "id": 3,
+        "title": "Crează un profil de performanță",
+        "description": "Realizează un raport individual sau general care evidențiază domeniile bine stăpânite și cele care necesită îmbunătățiri."
+      },
+      {
+        "id": 4,
+        "title": "Comunică rezultatele elevilor",
+        "description": "Elevii trebuie să înțeleagă nu doar nota finală, ci și cum au performat pe fiecare secțiune a testului. Oferă-le feedback detaliat și sugestii de progres."
+      },
+      {
+        "id": 5,
+        "title": "Exemplu de prezentare",
+        "example": {
+          "grafice": "Grafic cu scorurile pe fiecare domeniu evaluat.",
+          "feedback": "Mesaje specifice despre ce trebuie îmbunătățit și ce este deja bine realizat."
+        }
+      }
+    ]
+  }
+  

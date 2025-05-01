@@ -1,0 +1,23 @@
+[
+    {
+      "question": "Care dintre următoarele verbe este potrivit pentru un obiectiv cognitiv de nivel inferior?",
+      "options": ["Analizează", "Explică", "Memorează", "Evaluează"],
+      "correctAnswer": "Memorează"
+    },
+    {
+      "question": "Ce caracteristică este esențială pentru un obiectiv bine formulat?",
+      "options": ["Generalitate", "Ambiguitate", "Claritate", "Subiectivitate"],
+      "correctAnswer": "Claritate"
+    },
+    {
+      "question": "Un exemplu de obiectiv greșit este:",
+      "options": [
+        "Elevul va enumera cele 5 simțuri",
+        "Elevul va înțelege importanța simțurilor",
+        "Elevul va recunoaște simțurile",
+        "Elevul va numi simțurile"
+      ],
+      "correctAnswer": "Elevul va înțelege importanța simțurilor"
+    }
+  ]
+  

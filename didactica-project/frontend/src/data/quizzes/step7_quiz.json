@@ -1,0 +1,33 @@
+[
+    {
+      "question": "Ce trebuie făcut după ce testul a fost administrat?",
+      "options": [
+        "Se aruncă rezultatele",
+        "Se oferă doar nota finală",
+        "Se analizează și interpretează rezultatele",
+        "Se repetă testul integral"
+      ],
+      "correctAnswer": "Se analizează și interpretează rezultatele"
+    },
+    {
+      "question": "Cum poate fi prezentată analiza rezultatelor?",
+      "options": [
+        "Prin grafice și profiluri de performanță",
+        "Doar oral",
+        "Prin întrebări de follow-up",
+        "Sub forma unui eseu liber"
+      ],
+      "correctAnswer": "Prin grafice și profiluri de performanță"
+    },
+    {
+      "question": "De ce este important ca elevii să înțeleagă rezultatele?",
+      "options": [
+        "Pentru a nu repeta greșelile",
+        "Pentru a ști ce să învețe în viitor",
+        "Pentru a le oferi un scop de îmbunătățire",
+        "Toate variantele sunt corecte"
+      ],
+      "correctAnswer": "Toate variantele sunt corecte"
+    }
+  ]
+  

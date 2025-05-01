@@ -1,0 +1,28 @@
+[
+    {
+      "question": "Ce trebuie să reflecte valoarea în puncte a unei întrebări?",
+      "options": ["Lungimea întrebării", "Dificultatea întrebării", "Ordinea în test", "Numărul de opțiuni de răspuns"],
+      "correctAnswer": "Dificultatea întrebării"
+    },
+    {
+      "question": "Cum ar trebui să fie distribuite punctele într-un test corect?",
+      "options": [
+        "Toate întrebările să valoreze la fel",
+        "Itemii ușori să aibă mai multe puncte",
+        "În funcție de lungimea răspunsului",
+        "Proporțional cu dificultatea itemilor"
+      ],
+      "correctAnswer": "Proporțional cu dificultatea itemilor"
+    },
+    {
+      "question": "Care dintre următoarele întrebări ar trebui să primească mai multe puncte?",
+      "options": [
+        "Care este capitala Spaniei?",
+        "Numără până la 10",
+        "Explică diferențele dintre mit și legendă",
+        "Alege verbul din propoziție"
+      ],
+      "correctAnswer": "Explică diferențele dintre mit și legendă"
+    }
+  ]
+  

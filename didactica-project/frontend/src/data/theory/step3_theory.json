@@ -1,0 +1,39 @@
+{
+    "stepTitle": "Formularea și selecția itemilor",
+    "steps": [
+      {
+        "id": 1,
+        "title": "Ce înseamnă aceasta?",
+        "description": "După ce ai stabilit tipurile de întrebări, este timpul să creezi efectiv itemii. Fiecare întrebare trebuie să fie formulată clar, să fie relevantă pentru obiectivele testului și să nu aibă ambiguități."
+      },
+      {
+        "id": 2,
+        "title": "Fii clar și concis",
+        "description": "Întrebările trebuie să fie clare și ușor de înțeles. Evită folosirea unui limbaj prea complicat sau a frazelor lungi."
+      },
+      {
+        "id": 3,
+        "title": "Evită ambiguitățile",
+        "description": "Asigură-te că întrebările nu pot fi interpretate în moduri diferite și că cer un răspuns specific."
+      },
+      {
+        "id": 4,
+        "title": "Verifică validitatea",
+        "description": "Fiecare întrebare trebuie să contribuie la măsurarea obiectivelor testului. Dacă o întrebare nu măsoară ce trebuie, elimin-o sau reformuleaz-o."
+      },
+      {
+        "id": 5,
+        "title": "Exemple de itemi",
+        "example": {
+          "correct": "Care este capitala Franței?",
+          "incorrect": "Ce părere ai despre Franța și Paris?"
+        }
+      },
+      {
+        "id": 6,
+        "title": "Evită întrebările capcană",
+        "description": "Întrebările prea dificile sau cu răspunsuri înșelătoare nu reflectă corect nivelul de cunoștințe și pot frustra elevii. Scopul testului este evaluarea onestă, nu inducerea în eroare."
+      }
+    ]
+  }
+  

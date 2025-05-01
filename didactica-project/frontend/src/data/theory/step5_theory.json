@@ -1,0 +1,31 @@
+{
+    "stepTitle": "Experimentarea pre-testului",
+    "steps": [
+      {
+        "id": 1,
+        "title": "Ce înseamnă aceasta?",
+        "description": "Un pre-test este o versiune de încercare a testului, aplicată unui grup mic de persoane, pentru a verifica dacă întrebările sunt clare și dacă testul măsoară ce trebuie."
+      },
+      {
+        "id": 2,
+        "title": "Aplică testul unui grup mic",
+        "description": "Recomandarea este să aplici testul unui grup de 30–100 de elevi, preferabil reprezentativ pentru publicul țintă."
+      },
+      {
+        "id": 3,
+        "title": "Colectează feedback",
+        "description": "Întreabă participanții dacă au înțeles întrebările, dacă testul a fost prea dificil sau prea ușor și dacă a existat ceva confuz sau ambigu."
+      },
+      {
+        "id": 4,
+        "title": "Analizează rezultatele",
+        "description": "Verifică întrebările care au avut prea multe răspunsuri greșite sau corecte. Acest lucru poate indica faptul că întrebarea este prea dificilă, prea ușoară sau neclar formulată."
+      },
+      {
+        "id": 5,
+        "title": "Ajustează testul",
+        "description": "Pe baza feedback-ului și a datelor colectate, modifică itemii problematici, clarifică formulările și reechilibrează nivelul de dificultate al testului."
+      }
+    ]
+  }
+  

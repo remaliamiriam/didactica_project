@@ -16,7 +16,10 @@ const Home = () => {
       <div className="row w-100">
         {/* LEFT SIDE */}
         <div className="col-md-6 d-flex flex-column justify-content-center align-items-start p-5">
-          <h1 className="display-4 fw-bold">Didactica App</h1>
+        <h1 className="display-4 fw-bold animate__animated animate__backInLeft hero-title">
+          Didactica App
+        </h1>
+
           <p className="lead mt-3">Ghid pas cu pas pentru crearea testelor de cunoștințe didactice.</p>
         </div>
 

@@ -9,3 +9,15 @@ export const getLoggedInUser = () => {
     localStorage.removeItem('user');
   };
   
+
+  export const getUserProgress = () => {
+    const data = localStorage.getItem("userProgress");
+    return data ? JSON.parse(data) : {};
+  };
+  
+  export const updateUserProgress = (sectionKey) => {
+    const data = getUserProgress();
+    data[sectionKey] = true;
+    localStorage.setItem("userProgress", JSON.stringify(data));
+  };
+  

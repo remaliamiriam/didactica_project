@@ -1,0 +1,29 @@
+.stats-card {
+    background: rgba(255, 255, 255, 0.1); /* Transparent background */
+    backdrop-filter: blur(10px); /* Efet de blur pentru transparență */
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .stats-card:hover {
+    transform: translateY(-10px); /* Mică animație la hover */
+  }
+  
+  .stats-card .icon {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+  
+  .stats-card h3 {
+    font-size: 1.25rem;
+    margin: 0;
+  }
+  
+  .stats-card p {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.7);
+  }
+  

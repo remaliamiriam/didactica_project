@@ -1,0 +1,92 @@
+{
+    "stepTitle": "Formularea obiectivelor operaționale",
+    "steps": [
+      {
+        "id": 1,
+        "title": "Ce este un obiectiv operațional?",
+        "description": "Obiectivele operaționale definesc clar ce va învăța elevul și ce comportamente vor fi evaluate. Acestea trebuie formulate din perspectiva elevului, nu a profesorului.",
+        "example": {
+          "correct": "Elevul va putea explica teoria evoluției.",
+          "incorrect": "Profesorul va explica teoria evoluției."
+        }
+      },
+      {
+        "id": 2,
+        "title": "Alege un verb de acțiune (Taxonomia Bloom)",
+        "description": "Alege un verb clar și specific care reflectă nivelul cognitiv dorit. Verbul trebuie să fie observabil și măsurabil.",
+        "taxonomy": [
+          {
+            "level": "Cunoaștere",
+            "verbs": ["a recunoaște", "a enumera", "a descrie", "a identifica"]
+          },
+          {
+            "level": "Înțelegere",
+            "verbs": ["a explica", "a interpreta", "a clarifica", "a parafraza"]
+          },
+          {
+            "level": "Aplicare",
+            "verbs": ["a aplica", "a utiliza", "a rezolva", "a demonstra"]
+          },
+          {
+            "level": "Analiză",
+            "verbs": ["a compara", "a analiza", "a evalua", "a diferenția"]
+          },
+          {
+            "level": "Sinteză",
+            "verbs": ["a crea", "a formula", "a proiecta", "a concepe"]
+          },
+          {
+            "level": "Evaluare",
+            "verbs": ["a justifica", "a argumenta", "a evalua", "a decide"]
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "title": "Definește comportamentul observabil",
+        "description": "Comportamentul descris în obiectiv trebuie să poată fi observat și măsurat.",
+        "example": {
+          "correct": "Elevul va rezolva ecuații de gradul 2 aplicând formula corespunzătoare.",
+          "incorrect": "Elevul va înțelege ecuațiile de gradul 2."
+        }
+      },
+      {
+        "id": 4,
+        "title": "Adaugă condițiile de realizare",
+        "description": "Specifică în ce condiții elevul va îndeplini sarcina: materiale, timp, context etc.",
+        "examples": [
+          "având la dispoziție o foaie de lucru și un calculator",
+          "în 10 minute",
+          "fără ajutor extern"
+        ]
+      },
+      {
+        "id": 5,
+        "title": "Stabilește criterii de performanță",
+        "description": "Definește clar ce înseamnă succesul. Poate fi exprimat prin precizie, viteză, număr de răspunsuri corecte etc.",
+        "examples": [
+          "cel puțin 80% răspunsuri corecte",
+          "cel puțin 3 soluții posibile justificate",
+          "timp de realizare sub 10 minute"
+        ]
+      },
+      {
+        "id": 6,
+        "title": "Verifică coerența și claritatea obiectivului",
+        "description": "Folosind această listă, asigură-te că obiectivul este bine formulat.",
+        "checklist": [
+          "Este formulat din perspectiva elevului?",
+          "Conține un verb clar și observabil?",
+          "Include condiții și criterii de performanță?",
+          "Este măsurabil și realist?",
+          "Este aliniat cu scopul lecției?"
+        ]
+      },
+      {
+        "id": 7,
+        "title": "Exemplu complet de obiectiv",
+        "example": "La sfârșitul lecției, elevul va fi capabil să rezolve ecuații de gradul 2, aplicând formula generală, în mai puțin de 10 minute, cu un grad de corectitudine de cel puțin 90%."
+      }
+    ]
+  }
+  

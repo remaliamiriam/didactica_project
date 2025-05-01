@@ -1,0 +1,44 @@
+{
+    "stepTitle": "Stabilirea modului de cotare a itemilor",
+    "steps": [
+      {
+        "id": 1,
+        "title": "Ce înseamnă aceasta?",
+        "description": "Este important să stabilești câte puncte va valora fiecare întrebare, în funcție de dificultatea ei. Aceasta te va ajuta să cuantifici performanțele elevilor și să asiguri o evaluare corectă."
+      },
+      {
+        "id": 2,
+        "title": "Distribuie punctele proporțional cu dificultatea",
+        "description": "Întrebările mai dificile trebuie să valoreze mai multe puncte pentru a reflecta efortul și complexitatea răspunsului necesar."
+      },
+      {
+        "id": 3,
+        "title": "Ia în considerare tipul de întrebare",
+        "description": "Întrebările deschise, care necesită un răspuns detaliat, pot fi mai complexe și ar trebui să primească mai multe puncte decât întrebările de tip „adevărat/fals”."
+      },
+      {
+        "id": 4,
+        "title": "Evită acumularea de puncte mari pentru întrebări ușoare",
+        "description": "Dacă întrebi ceva simplu, nu acorda prea multe puncte pentru asta. Distribuția punctajului trebuie să reflecte corect efortul necesar."
+      },
+      {
+        "id": 5,
+        "title": "Exemple de alocare a punctajului",
+        "examples": [
+          {
+            "question": "Care este capitala Italiei?",
+            "difficulty": "ușoară",
+            "points": 1,
+            "reason": "Întrebarea necesită un răspuns scurt, de tip cunoștințe de bază."
+          },
+          {
+            "question": "Explică diferențele între mit și legendă.",
+            "difficulty": "complexă",
+            "points": 5,
+            "reason": "Întrebarea solicită o analiză comparativă și exprimare detaliată, implicând competențe superioare."
+          }
+        ]
+      }
+    ]
+  }
+  

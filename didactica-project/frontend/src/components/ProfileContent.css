@@ -1,0 +1,28 @@
+.leaderboard-section {
+    margin-bottom: 1.5rem;
+  }
+  
+  .leaderboard-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .leaderboard-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #eaeaea;
+  }
+  
+  .leaderboard-list li.highlight {
+    background-color: #e0f7fa;
+    font-weight: bold;
+  }
+  
+  .user-position {
+    margin-top: 0.5rem;
+    font-style: italic;
+    color: #555;
+  }
+  

@@ -1,0 +1,44 @@
+body, html {
+  overflow: hidden;
+  height: 100%;
+}
+
+.container-fluid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 2rem;
+  text-align: center;
+  width: 100%;
+  background: inherit;  /* Moștenește fundalul animat de la index.css */
+}
+  
+  .glass-panel {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 16px;
+    padding: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    color: white;
+  }
+  
+  .glass-panel h2,
+  .glass-panel h3,
+  .glass-panel h4,
+  .glass-panel p {
+    color: rgba(255, 255, 255, 0.041);
+  }
+  
+  @media (max-width: 768px) {
+    .glass-panel {
+      padding: 15px;
+    }
+  
+    .profile-main-container {
+      padding: 1rem;
+    }
+  }
+  

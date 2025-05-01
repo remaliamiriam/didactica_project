@@ -14,30 +14,46 @@ const NicknameModal = ({ onClose }) => {
     }
 
     try {
-      const checkResponse = await fetch('http://localhost:4000/check-nickname', {
+      const response = await fetch('http://localhost:4000/users/create-nickname-account', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ nickname }),
         credentials: 'include',
+        body: JSON.stringify({ nickname }),
       });
 
-      const checkData = await checkResponse.json(); // <- mutat aici
+      const text = await response.text();
+      console.log('📥 Răspuns brut de la server:', text);
 
-      if (checkResponse.ok) {
-        if (checkData.exists) {
-          navigate('/profile');
+      let data;
+      try {
+        data = JSON.parse(text);
+      } catch (err) {
+        console.error('❌ Răspunsul nu e JSON valid:', err);
+        setError('Serverul a trimis un răspuns invalid.');
+        return;
+      }
+
+      if (response.ok) {
+        // ✅ Salvăm nickname-ul global
+        localStorage.setItem("userNickname", nickname);
+
+        if (data.message === 'Utilizator deja existent.') {
+          navigate('/profile-home');
+        } else if (data.message === 'Cont creat cu succes!') {
+          navigate('/profile-home');
         } else {
-          navigate(`/create-account?nickname=${encodeURIComponent(nickname)}`);
+          console.log('⚠️ Răspuns necunoscut:', data);
+          setError('Răspuns necunoscut de la server.');
         }
       } else {
-        setError(checkData.error || 'Eroare la verificarea nickname-ului.');
-        console.error('Eroare la verificare:', checkData);
+        console.error('Eroare la răspuns:', data);
+        setError(data.error || 'Eroare la crearea contului.');
       }
     } catch (err) {
+      console.error('💥 Eroare de rețea:', err);
       setError('Eroare de rețea. Încearcă din nou.');
-      console.error('Eroare de rețea:', err);
     }
   };
 

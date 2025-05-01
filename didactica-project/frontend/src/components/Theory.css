@@ -1,0 +1,35 @@
+.theory-content {
+  width: 100%;
+  color: white;
+  font-size: 1rem;
+}
+
+.theory-content h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #d291bc;
+}
+
+.theory-content h5 {
+  font-size: 1.2rem;
+  margin-top: 1rem;
+  color: #ffc9e1;
+}
+
+.theory-content p {
+  line-height: 1.6;
+  color: white;
+  font-size: 1rem;
+}
+
+.theory-content ul {
+  padding-left: 1.2rem;
+  color: white;
+  font-size: 1rem;
+}
+
+.theory-content li {
+  margin-bottom: 0.5rem;
+  color: white;
+  font-size: 1rem;
+}

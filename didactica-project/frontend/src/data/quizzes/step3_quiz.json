@@ -1,0 +1,43 @@
+[
+    {
+      "question": "Ce caracteristică trebuie să aibă fiecare întrebare dintr-un test bine formulat?",
+      "options": ["Să fie dificilă", "Să aibă un limbaj complicat", "Să fie clară și relevantă", "Să fie lungă și detaliată"],
+      "correctAnswer": "Să fie clară și relevantă"
+    },
+    {
+      "question": "Ce ar trebui evitat la formularea itemilor?",
+      "options": ["Claritatea enunțului", "Ambiguitatea", "Relevanța pentru obiective", "Concizia"],
+      "correctAnswer": "Ambiguitatea"
+    },
+    {
+      "question": "Care dintre următoarele este un exemplu de întrebare bine formulată?",
+      "options": [
+        "Ce părere ai despre Franța și Paris?",
+        "Care este capitala Franței?",
+        "Ce simți când te gândești la Paris?",
+        "Este Parisul un oraș frumos?"
+      ],
+      "correctAnswer": "Care este capitala Franței?"
+    },
+    {
+      "question": "Ce înseamnă ca un item să aibă validitate?",
+      "options": [
+        "Să fie lung și complex",
+        "Să verifice cunoștințele generale",
+        "Să contribuie la măsurarea obiectivelor testului",
+        "Să fie greu de răspuns"
+      ],
+      "correctAnswer": "Să contribuie la măsurarea obiectivelor testului"
+    },
+    {
+      "question": "De ce trebuie evitate întrebările capcană sau prea dificile?",
+      "options": [
+        "Pentru că sunt plictisitoare",
+        "Pentru că nu ajută la o evaluare corectă",
+        "Pentru că elevii se supără",
+        "Pentru că durează prea mult"
+      ],
+      "correctAnswer": "Pentru că nu ajută la o evaluare corectă"
+    }
+  ]
+  
