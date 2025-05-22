@@ -1,55 +1,40 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useUser } from '../hooks/UserContext';
+import './NicknameModal.css'; 
 
 const NicknameModal = ({ onClose }) => {
   const [nickname, setNickname] = useState('');
+  const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const navigate = useNavigate();
+  const { setUser } = useUser();
 
-  const handleSubmit = async () => {
+  const handleLogin = async () => {
     setError('');
-    if (!nickname.trim()) {
-      setError('Te rugăm să introduci un nickname.');
+    if (!nickname.trim() || !password.trim()) {
+      setError('Te rugăm să introduci un nickname și o parolă.');
       return;
     }
 
     try {
-      const response = await fetch('http://localhost:4000/users/create-nickname-account', {
+      const response = await fetch('http://localhost:4000/users/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         credentials: 'include',
-        body: JSON.stringify({ nickname }),
+        body: JSON.stringify({ nickname, password }),
       });
 
-      const text = await response.text();
-      console.log('📥 Răspuns brut de la server:', text);
+      const data = await response.json();
 
-      let data;
-      try {
-        data = JSON.parse(text);
-      } catch (err) {
-        console.error('❌ Răspunsul nu e JSON valid:', err);
-        setError('Serverul a trimis un răspuns invalid.');
-        return;
-      }
-
-      if (response.ok) {
-        // ✅ Salvăm nickname-ul global
-        localStorage.setItem("userNickname", nickname);
-
-        if (data.message === 'Utilizator deja existent.') {
-          navigate('/profile-home');
-        } else if (data.message === 'Cont creat cu succes!') {
-          navigate('/profile-home');
-        } else {
-          console.log('⚠️ Răspuns necunoscut:', data);
-          setError('Răspuns necunoscut de la server.');
-        }
+      if (response.ok && data.user) {
+        localStorage.setItem('user', JSON.stringify(data.user));
+        setUser(data.user);
+        navigate('/profile-home');
       } else {
-        console.error('Eroare la răspuns:', data);
-        setError(data.error || 'Eroare la crearea contului.');
+        setError(data.error || 'Nickname sau parolă incorecte.');
       }
     } catch (err) {
       console.error('💥 Eroare de rețea:', err);
@@ -60,19 +45,34 @@ const NicknameModal = ({ onClose }) => {
   return (
     <div className="glass-modal">
       <div className="modal-content">
-        <h2>Introdu nickname-ul</h2>
+     
+        <h2>Autentificare</h2>
         <input
           type="text"
-          placeholder="ex: Ana123"
+          placeholder="Nickname"
           value={nickname}
           onChange={(e) => setNickname(e.target.value)}
         />
+        <input
+          type="password"
+          placeholder="Parolă"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        
         {error && <p className="error-text">{error}</p>}
         <div className="modal-buttons mt-3">
-          <button onClick={handleSubmit}>Continuă</button>
-          <button onClick={onClose} className="ms-2">Închide</button>
+           <button onClick={onClose} className="ms-2">Închide</button>
+           <button onClick={handleLogin}>Continuă</button>
         </div>
-      </div>
+        <p className="mt-3">
+          Nu ai cont?{' '}
+          <a href="/create-account" style={{ color: '#c77dff' }}>
+            Creează unul aici
+          </a>
+        </p>
+      
+    </div>
     </div>
   );
 };

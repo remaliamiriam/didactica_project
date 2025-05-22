@@ -1,50 +1,38 @@
-import React, { useState, useEffect } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './CreateAccount.css';
 
 const CreateAccount = () => {
   const [nickname, setNickname] = useState('');
+  const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-  const location = useLocation();
-
-  useEffect(() => {
-    const params = new URLSearchParams(location.search);
-    const nicknameFromUrl = params.get('nickname');
-    if (nicknameFromUrl) {
-      setNickname(nicknameFromUrl);
-    }
-  }, [location.search]);
 
   const handleSubmit = async () => {
     setError('');
-    if (!nickname.trim()) {
-      setError('Te rugăm să introduci un nickname.');
+    if (!nickname.trim() || !password.trim()) {
+      setError('Te rugăm să introduci un nickname și o parolă.');
       return;
     }
 
     setLoading(true);
     try {
-      const response = await fetch('http://localhost:4000/users/create-nickname-account', {
+      const response = await fetch('http://localhost:4000/users/create-account', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ nickname }),
+        body: JSON.stringify({ nickname, password }),
         credentials: 'include',
       });
 
       const data = await response.json();
 
-      if (response.ok) {
-        if (data.user) {
-          localStorage.setItem('user', JSON.stringify(data.user));
-          navigate('/profile-home');
-          console.log('Răspuns backend:', data);
-        } else {
-          setError('Contul nu a fost creat corespunzător.');
-        }
+      if (response.ok && data.user) {
+        localStorage.setItem('user', JSON.stringify(data.user));
+        navigate('/profile-home');
+      
       } else {
         setError(data.error || 'A apărut o eroare.');
       }
@@ -67,6 +55,16 @@ const CreateAccount = () => {
           value={nickname}
           onChange={(e) => setNickname(e.target.value)}
         />
+        <input
+          type="password"
+          placeholder="Introdu parola"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+         <p className="password-warning">
+            Atentie!!!!  Dacă uiți această parolă, nu va putea fi resetată
+        </p>
+        
         {error && <p className="error-text">{error}</p>}
         <button onClick={handleSubmit} disabled={loading}>
           {loading ? 'Se creează...' : 'Continuă'}

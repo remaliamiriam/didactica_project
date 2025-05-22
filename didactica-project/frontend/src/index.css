@@ -5,6 +5,7 @@ html, body {
   margin: 0;
   padding: 0;
   height: 100%;
+  overflow-y: auto;
   background: linear-gradient(45deg, #000421, #110527, #20062c, #340732, #54083d);
   background-size: 400% 400%;
   animation: gradientAnimation 10s ease infinite;

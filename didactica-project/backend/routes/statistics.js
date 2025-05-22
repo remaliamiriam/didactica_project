@@ -1,5 +1,6 @@
 import express from 'express';
 import { createClient } from '@supabase/supabase-js';
+import { authenticateToken } from '../authMiddleware.js'; // Asigură-te că calea e corectă
 
 const router = express.Router();
 
@@ -8,7 +9,18 @@ const supabase = createClient(
   process.env.SUPABASE_KEY
 );
 
-// Utilitar pentru calcul streak folosind Supabase
+// Mapează step-urile la UUID-uri corespunzătoare
+const stepToUUID = {
+  "step1": "1705dc84-019d-4016-aeeb-9b881f4731e0",
+  "step2": "77c370d4-f4f4-45fa-8bb8-6ae45c3d85cf",
+  "step3": "9c76345b-6bf3-4ec7-ac9f-0d186c8a82a2",
+  "step4": "d0e6172f-a834-4ec3-ac25-8457305124e9",
+  "step5": "70eb6b63-1651-46b7-a278-2f8b8729e29f",
+  "step6": "532a2b4a-a072-47bd-93ed-aa78a51125e9",
+  "step7": "6601bb0e-8939-4476-b2f5-8c97d3e1926c",
+};
+
+// Calculează și actualizează streak-ul
 async function calculateStreak(userId) {
   const { data: completions, error } = await supabase
     .from('statistics')
@@ -34,29 +46,39 @@ async function calculateStreak(userId) {
     }
   }
 
-  // Actualizează streak-ul în tabela users
-  await supabase
+  const { error: streakError } = await supabase
     .from('users')
     .update({ streak })
     .eq('id', userId);
 
+  if (streakError) {
+    console.error('Eroare la actualizarea streak-ului:', streakError);
+    return 0;
+  }
+
   return streak;
 }
 
-router.post('/', async (req, res) => {
-  const { user_id, test_id, score } = req.body;
+// ✅ Middleware JWT aplicat pe rută
+router.post('/', authenticateToken, async (req, res) => {
+  const user_id = req.user.id; // 🔐 Obținut din JWT
+  const { test_id, score } = req.body;
 
-  if (!user_id || !test_id || score === undefined) {
+  if (!test_id || score === undefined) {
     return res.status(400).json({ error: 'Date lipsă' });
   }
 
   try {
-    // 1. Inserare în statistics
+    const testUUID = stepToUUID[test_id];
+    if (!testUUID) {
+      return res.status(400).json({ error: 'Test ID invalid' });
+    }
+
     const { data: inserted, error: insertError } = await supabase
       .from('statistics')
       .insert([{
         user_id,
-        test_id,
+        test_id: testUUID,
         score,
         completed_at: new Date()
       }])
@@ -64,11 +86,14 @@ router.post('/', async (req, res) => {
 
     if (insertError) throw insertError;
 
-    // 2. Recalculează scorul mediu și numărul de teste
     const { data: stats, error: userStatsError } = await supabase
       .from('statistics')
       .select('score')
       .eq('user_id', user_id);
+
+    if (userStatsError || !stats || stats.length === 0) {
+      return res.status(500).json({ error: 'Eroare la obținerea statisticilor utilizatorului' });
+    }
 
     const scores = stats.map(row => row.score);
     const averageScore = scores.reduce((a, b) => a + b, 0) / scores.length;
@@ -82,16 +107,17 @@ router.post('/', async (req, res) => {
       })
       .eq('id', user_id);
 
-    // 3. Adaugă timestamp în perfect_scores dacă scorul e 100
     if (score === 100) {
       await supabase.rpc('append_perfect_score', {
         uid: user_id,
-        timestamp: Math.floor(Date.now() / 1000) // Unix timestamp
+        timestamp: Math.floor(Date.now() / 1000)
       });
     }
 
-    // 4. Calculează streak-ul
-    await calculateStreak(user_id);
+    const streak = await calculateStreak(user_id);
+    if (streak === 0) {
+      return res.status(500).json({ error: 'Eroare la calcularea streak-ului' });
+    }
 
     res.status(201).json({ success: true, statistics: inserted[0] });
   } catch (err) {

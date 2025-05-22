@@ -1,3 +1,4 @@
+// server.js
 import dotenv from 'dotenv';
 dotenv.config();
 import express from 'express';
@@ -8,6 +9,7 @@ import jwt from 'jsonwebtoken';
 import step1Routes from './routes/step1.js';
 import leaderboardRoutes from './routes/leaderboard.js';
 import statisticsRoutes from './routes/statistics.js';
+import progressRoutes from './routes/progress.js'; // ✅ Import nou
 
 const supabase = createClient(
   process.env.SUPABASE_URL,
@@ -20,20 +22,18 @@ console.log('SUPABASE_KEY:', process.env.SUPABASE_KEY);
 const app = express();
 const PORT = 4000;
 
-// Configurare CORS cu cookies
 app.use(cors({
-  origin: 'http://localhost:3000', // Frontend-ul tău
+  origin: 'http://localhost:3000',
   methods: 'GET,POST',
   allowedHeaders: 'Content-Type',
-  credentials: true, // Asta e cheia
+  credentials: true,
 }));
 
 app.use(express.json());
 
-// Middleware pentru autentificare token
 const authenticateToken = (req, res, next) => {
   const authHeader = req.headers['authorization'];
-  const token = authHeader && authHeader.split(' ')[1]; // Bearer token
+  const token = authHeader && authHeader.split(' ')[1];
 
   if (!token) {
     return res.status(401).json({ error: 'Token lipsă.' });
@@ -46,19 +46,19 @@ const authenticateToken = (req, res, next) => {
   });
 };
 
-// Conectează rutele
+// 🔗 Conectăm rutele
 app.use('/users', usersRoutes);
+app.use('/api/leaderboard', leaderboardRoutes);
+app.use('/api/statistics', statisticsRoutes);
+app.use('/api/step1', step1Routes);
+app.use('/api/progress', progressRoutes); // ✅ Nou
 
-// Ruta protejată de autentificare
+// Exemplu de rută protejată
 app.get('/secure-data', authenticateToken, (req, res) => {
   res.json({ message: `Salut ${req.user.nickname}, ai acces la datele secrete!` });
 });
 
-app.use('/api/leaderboard', leaderboardRoutes);
-app.use('/api/statistics', statisticsRoutes);
-app.use('/api/step1', step1Routes);
-
-// Pornește serverul
+// Start server
 app.listen(PORT, () => {
   console.log(`✅ Serverul rulează pe http://localhost:${PORT}`);
 });
@@ -67,5 +67,3 @@ app.use((req, res, next) => {
   console.log(`➡️ Cerere necunoscută către: ${req.method} ${req.originalUrl}`);
   res.status(404).send('Rută inexistentă');
 });
-
-

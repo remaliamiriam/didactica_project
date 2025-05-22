@@ -10,7 +10,12 @@ export const authenticateToken = (req, res, next) => {
 
   jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
     if (err) return res.status(403).json({ error: 'Token invalid sau expirat.' });
+
     req.user = user;
+
+    // ✅ Setează user_id-ul ca `req.user.id`, preluat din `sub`
+    req.user.id = user.sub;
+
     next();
   });
 };

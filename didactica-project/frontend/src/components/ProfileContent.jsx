@@ -10,19 +10,20 @@ const ProfileContent = ({ user }) => {
   const [error, setError] = useState(null);
 
   const savedStep = localStorage.getItem('step1_progress');
-  const stepText = savedStep ? `Pasul ${parseInt(savedStep) + 1}` : "Începe de la început";
+  const stepText = savedStep ? `Pasul ${parseInt(savedStep) + 1}` : 'Începe de la început';
 
   useEffect(() => {
-    if (!user) return;
-    
+    if (!user?.id) return;
+
     const fetchLeaderboards = async () => {
       try {
-        const response = await fetch(`/api/leaderboard?userId=${user?.id}`);
+        const response = await fetch(`/api/leaderboard?userId=${user.id}`);
         if (!response.ok) throw new Error('Eroare la încărcarea datelor');
+
         const data = await response.json();
         setLeaderboards(data);
       } catch (err) {
-        console.error("Eroare la leaderboard:", err);
+        console.error('Eroare la leaderboard:', err);
         setError('Nu am reușit să încarcăm clasamentele. Te rugăm să încerci din nou mai târziu.');
       } finally {
         setLoading(false);
@@ -33,17 +34,17 @@ const ProfileContent = ({ user }) => {
   }, [user]);
 
   const renderLeaderboard = (title, icon, items, unit = '') => {
-    if (!items) return null;
+    if (!items || items.length === 0)
+      return <p className="text-muted">Nicio intrare momentan pentru {title.toLowerCase()}.</p>;
+
     const userIndex = items.findIndex(entry => entry.nickname === user?.nickname);
+
     return (
       <div className="leaderboard-section">
         <h5>{icon} {title}</h5>
         <ul className="leaderboard-list">
           {items.map((entry, idx) => (
-            <li
-              key={entry.nickname}
-              className={entry.nickname === user?.nickname ? 'highlight' : ''}
-            >
+            <li key={entry.nickname} className={entry.nickname === user?.nickname ? 'highlight' : ''}>
               <span>{idx + 1}. {entry.nickname}</span>
               <span>{entry.value}{unit}</span>
             </li>
@@ -58,59 +59,64 @@ const ProfileContent = ({ user }) => {
     );
   };
 
-  if (error) {
-    return <div>{error}</div>;
-  }
+  if (!user) return <div className="p-4">Autentificare necesară pentru a vedea profilul.</div>;
+  if (error) return <div className="p-4 text-danger">{error}</div>;
 
   return (
-    <div className="p-4">
-      <h2>Bun venit!</h2>
-      <p>Continuă procesul de creare a testului.</p>
-
-      <Card className="mb-3 shadow-sm">
-        <Card.Body>
-          <Card.Title>📍 Continuă de unde ai rămas</Card.Title>
-          <Card.Text>{stepText}</Card.Text>
-          <Button
-            variant="primary"
-            onClick={() => navigate('/guide')}
-            className="my-3"
-          >
-            {savedStep ? "📘 Continuă Ghidul" : "📘 Reia Ghidul"}
-          </Button>
-        </Card.Body>
-      </Card>
-
-      <Card className="mb-3 shadow-sm">
-        <Card.Body>
-          <Card.Title>🏅 Clasamente</Card.Title>
-          {loading ? (
-            <Spinner animation="border" size="sm" variant="info" />
-          ) : (
-            <>
-              {renderLeaderboard('Clasament pe timp (perfect score)', '⏱️', leaderboards?.topPerformers, ' secunde')}
-              {renderLeaderboard('Streak-uri active', '🔥', leaderboards?.streaks, ' zile')}
-              {renderLeaderboard('Număr de teste completate', '📈', leaderboards?.mostTests)}
-              {renderLeaderboard('Scor mediu la quiz', '🧠', leaderboards?.quizMasters, '%')}
-            </>
-          )}
-        </Card.Body>
-      </Card>
-
-      {leaderboards?.similar?.length > 0 && (
+    <div className="profile-container">
+      <div className="left-section">
         <Card className="mb-3 shadow-sm">
           <Card.Body>
-            <Card.Title>🎯 Utilizatori cu scoruri similare</Card.Title>
-            <ul>
-              {leaderboards.similar.map((entry) => (
-                <li key={entry.nickname}>
-                  {entry.nickname} – {entry.value}%
-                </li>
-              ))}
-            </ul>
+            <Card.Title>📍 Continuă de unde ai rămas</Card.Title>
+            <Card.Text>{stepText}</Card.Text>
+            <Button variant="primary" onClick={() => navigate('/guide')} className="my-3">
+              {savedStep ? '📘 Continuă Ghidul' : '📘 Reia Ghidul'}
+            </Button>
           </Card.Body>
         </Card>
-      )}
+
+        <Card className="mb-3 shadow-sm">
+          <Card.Body>
+            <Card.Title>🏅 Clasamente</Card.Title>
+            {loading ? (
+              <Spinner animation="border" size="sm" variant="info" />
+            ) : (
+              <>
+                {renderLeaderboard('Clasament pe timp (perfect score)', '⏱️', leaderboards?.topPerformers, ' secunde')}
+                {renderLeaderboard('Streak-uri active', '🔥', leaderboards?.streaks, ' zile')}
+                {renderLeaderboard('Număr de teste completate', '📈', leaderboards?.mostTests)}
+                {renderLeaderboard('Scor mediu la quiz', '🧠', leaderboards?.quizMasters, '%')}
+              </>
+            )}
+          </Card.Body>
+        </Card>
+
+        {leaderboards?.similar?.length > 0 && (
+          <Card className="mb-3 shadow-sm">
+            <Card.Body>
+              <Card.Title>🎯 Utilizatori cu scoruri similare</Card.Title>
+              <ul>
+                {leaderboards.similar.map((entry) => (
+                  <li key={entry.nickname}>
+                    {entry.nickname} – {entry.value}%
+                  </li>
+                ))}
+              </ul>
+            </Card.Body>
+          </Card>
+        )}
+      </div>
+
+      <div className="right-section">
+        <Card className="mb-3 shadow-sm">
+          <Card.Body>
+            <Card.Title>🏁 Continuă Testul</Card.Title>
+            <Button variant="primary" onClick={() => navigate('/test')} className="my-3">
+              Continuă Testul
+            </Button>
+          </Card.Body>
+        </Card>
+      </div>
     </div>
   );
 };

@@ -1,28 +1,117 @@
-.leaderboard-section {
-    margin-bottom: 1.5rem;
+/* General Layout */
+.profile-page-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 2rem;
+  background: linear-gradient(to right, #db0091, #000bcb);
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Container Split */
+.profile-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+/* Left Section: Stats, Resume Test, Leaderboard */
+.left-section {
+  flex: 1;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Right Section: Suggestions, Achievements */
+.right-section {
+  flex: 1;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Card Styling (glassmorphic) */
+.card {
+  background: rgba(255, 255, 255, 0.12) !important;
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  padding: 1.5rem;
+  color: white;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 36px rgba(0, 0, 0, 0.3);
+}
+
+.card-title {
+  font-size: 1.4rem;
+  margin-bottom: 0.75rem;
+}
+
+.card-text {
+  font-size: 1rem;
+}
+
+/* Leaderboard List */
+.leaderboard-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.leaderboard-list li {
+  padding: 0.6rem 1rem;
+  margin-bottom: 0.4rem;
+  background-color: rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  transition: background-color 0.2s;
+}
+
+.leaderboard-list li:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+}
+
+/* Spinner */
+.spinner-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+}
+
+/* Animations (for Framer Motion) */
+.animated-card {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.5s forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  .leaderboard-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .profile-container {
+    flex-direction: column;
+    padding: 1rem;
   }
-  
-  .leaderboard-list li {
-    display: flex;
-    justify-content: space-between;
-    padding: 0.5rem 0;
-    border-bottom: 1px solid #eaeaea;
+
+  .left-section,
+  .right-section {
+    width: 100%;
   }
-  
-  .leaderboard-list li.highlight {
-    background-color: #e0f7fa;
-    font-weight: bold;
-  }
-  
-  .user-position {
-    margin-top: 0.5rem;
-    font-style: italic;
-    color: #555;
-  }
-  
+}

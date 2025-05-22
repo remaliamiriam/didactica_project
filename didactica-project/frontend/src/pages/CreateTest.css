@@ -1,0 +1,31 @@
+.glass-panel {
+    position: relative;
+    height: 500px; /* Setează înălțimea totală a panoului */
+    overflow: hidden; /* Ascunde overflow-ul în afară de interior */
+    border-radius: 0.75rem;
+    backdrop-filter: blur(8px);
+    background: rgba(255, 255, 255, 0.75);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.15);
+  }
+  
+  .scrollable-content {
+    height: 100%; /* Înălțimea trebuie să ocupe tot spațiul disponibil */
+    overflow-y: auto; /* Permite derularea pe axa verticală */
+    padding-bottom: 1rem; /* Adaugă padding pentru a nu tăia conținutul */
+  }
+  .scrollable-content::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  .scrollable-content::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 9px;
+  }
+  
+  .scrollable-content::-webkit-scrollbar-thumb {
+    background-color: #a84ede;
+    border-radius: 9px;
+    border: 2px solid transparent;
+    background-clip: content-box;
+  }
+    

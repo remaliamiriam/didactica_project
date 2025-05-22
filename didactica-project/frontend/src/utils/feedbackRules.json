@@ -1,0 +1,110 @@
+{
+  "objective": {
+    "rules": [
+      {
+        "id": "structure",
+        "description": "Obiectivul trebuie să conțină un verb operațional și un conținut clar.",
+        "example_correct": "Să explice procesul de fotosinteză.",
+        "example_wrong": "Să știe fotosinteza.",
+        "error_message": "Obiectivul trebuie să includă un verb operațional și un conținut clar."
+      },
+      {
+        "id": "avoid_vague_verbs",
+        "description": "Verbele vagi (a ști, a înțelege, a învăța) trebuie evitate.",
+        "vague_verbs": ["a ști", "a înțelege", "a învăța"],
+        "error_message": "Verbul folosit este vag. Folosește un verb operațional (ex: a explica, a analiza)."
+      },
+      {
+        "id": "minimum_length",
+        "description": "Obiectivul trebuie să aibă o lungime minimă pentru claritate.",
+        "min_length": 10,
+        "error_message": "Obiectivul este prea scurt. Asigură-te că explică clar comportamentul și conținutul."
+      },
+      {
+        "id": "single_main_verb",
+        "description": "Obiectivul trebuie să conțină un singur verb operațional principal.",
+        "error_message": "Obiectivul conține mai multe verbe operaționale. Alege un singur comportament clar definit."
+      },
+      {
+        "id": "consistent_verb_in_sentences",
+        "description": "Dacă obiectivul are două propoziții, verbul din a doua trebuie să fie același ca în prima.",
+        "error_message": "Verbul din a doua propoziție este diferit. Folosește același verb operațional pentru consistență."
+      },            
+      {
+        "id": "verb_tense",
+        "description": "Verbul trebuie să fie la infinitiv sau indicativ corect formulat.",
+        "example_correct": "Să analizeze un fenomen.",
+        "example_wrong": "Analizează un fenomen.",
+        "error_message": "Verbul trebuie să fie la forma corectă (infinitiv sau indicativ)."
+      },
+      {
+        "id": "active_form",
+        "description": "Obiectivul trebuie să fie formulat activ, nu pasiv.",
+        "example_correct": "Să explice procesul de fotosinteză.",
+        "example_wrong": "Să fie explicat procesul de fotosinteză.",
+        "error_message": "Formularea trebuie să fie activă, nu pasivă."
+      },
+      {
+        "id": "content_behavior_link",
+        "description": "Obiectivul trebuie să stabilească o legătură clară între comportamentul dorit și conținutul învățat.",
+        "example_correct": "Să descrie structura ADN-ului.",
+        "example_wrong": "Să cunoască ADN-ul.",
+        "error_message": "Obiectivul trebuie să descrie comportamentul dorit și conținutul specific."
+      }
+    ],
+    "recommended_verbs": {
+      "cunoastere": ["a defini", "a enumera", "a recunoaște", "a repeta", "a identifica", "a descrie"],
+      "intelegere": ["a explica", "a interpreta", "a reformula", "a rezuma", "a exemplifica"],
+      "aplicare": ["a utiliza", "a demonstra", "a calcula", "a rezolva", "a construi", "a folosi"],
+      "analiza": ["a compara", "a clasifica", "a diferenția", "a organiza", "a distinge", "a analiza"],
+      "sinteza": ["a crea", "a proiecta", "a compune", "a formula", "a planifica", "a elabora"],
+      "evaluare": ["a aprecia", "a evalua", "a justifica", "a decide", "a argumenta", "a critica"]
+    }
+  },
+  "question": {
+    "rules": [
+      {
+        "id": "clarity",
+        "description": "Întrebarea trebuie să fie clară și concisă.",
+        "error_message": "Întrebarea este vag formulată. Reformulează pentru claritate."
+      },
+      {
+        "id": "objective_alignment",
+        "description": "Întrebarea trebuie să fie în concordanță cu obiectivul evaluat.",
+        "error_message": "Întrebarea nu corespunde obiectivului educațional indicat."
+      },
+      {
+        "id": "question_type_suitability",
+        "description": "Tipul de întrebare trebuie să se potrivească cu nivelul de evaluare.",
+        "error_message": "Tipul de întrebare nu este adecvat pentru competența evaluată."
+      },
+      {
+        "id": "distractors_relevance",
+        "description": "Distractorii din întrebările grilă trebuie să fie plauzibili.",
+        "error_message": "Unii distractori sunt evident greșiți. Asigură-te că sunt plauzibili."
+      },
+      {
+        "id": "avoid_confusing_negatives",
+        "description": "Evită formulările negative confuze.",
+        "example_wrong": "Care NU este un exemplu de...?",
+        "example_suggested": "Toate sunt exemple, cu excepția...",
+        "error_message": "Întrebarea este negativ formulată într-un mod confuz. Reformulează."
+      },
+      {
+        "id": "redundancy",
+        "description": "Întrebările nu trebuie să fie redundante sau să se repete.",
+        "error_message": "Întrebarea este redundantă. Reformulează pentru a o face unică."
+      },
+      {
+        "id": "too_general_question",
+        "description": "Întrebările nu trebuie să fie prea generale.",
+        "error_message": "Întrebarea este prea generală. Detaliază mai mult."
+      },
+      {
+        "id": "diverse_distractors",
+        "description": "Distractorii trebuie să fie diferiți și să aibă un grad similar de plausibilitate.",
+        "error_message": "Distractorii nu sunt suficient de diverși. Asigură-te că sunt diferențați și relevanți."
+      }
+    ]
+  }
+}

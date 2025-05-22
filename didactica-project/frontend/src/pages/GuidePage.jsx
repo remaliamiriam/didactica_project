@@ -8,7 +8,11 @@ const Guide = () => {
     { title: 'Etapa 1 - Identificarea competențelor', isLocked: false },
     { title: 'Etapa 2 - Crearea tabelei de specificații', isLocked: true },
     { title: 'Etapa 3 - Formularea întrebărilor', isLocked: true },
-    { title: 'Etapa 4 - Evaluarea testului', isLocked: true }
+    { title: 'Etapa 4 - Evaluarea testului', isLocked: true },
+    {title: 'Etapa 5 - Generarea raportului', isLocked: true },
+    { title: 'Etapa 6 - Finalizarea testului', isLocked: true },
+    { title: 'Etapa 7 - Feedback și îmbunătățiri', isLocked: true }
+
   ]);
 
   const navigate = useNavigate();
@@ -23,7 +27,6 @@ const Guide = () => {
     <div className="d-flex">
       {/* Sidebar pentru etape */}
       <div className="glass-panel-header">
-          <h1>Ghid - Elaborare test de cunoștințe</h1>
       </div>
       <div>
         <ListGroup>

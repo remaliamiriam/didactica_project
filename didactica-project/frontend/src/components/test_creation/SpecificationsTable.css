@@ -1,0 +1,24 @@
+/* Specificații vizuale pentru tabel */
+.table td,
+.table th {
+  vertical-align: middle;
+  text-align: center;
+}
+
+/* Evidențiere celulă activă */
+input:focus {
+  outline: 2px solid #0d6efd;
+  background-color: #e9f5ff;
+}
+
+/* Linie de total și procent */
+.table tr:last-child,
+.table tr:nth-last-child(2) {
+  background-color: #f8f9fa;
+  font-weight: bold;
+}
+
+/* Buton ștergere */
+button.btn-danger {
+  padding: 0.25rem 0.5rem;
+}
