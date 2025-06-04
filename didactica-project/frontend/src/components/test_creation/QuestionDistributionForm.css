@@ -1,0 +1,36 @@
+/* Tabel cu fundal mov foarte închis și text deschis */
+.custom-table {
+  border-radius: 12px;
+  overflow: hidden;             /* permite colțurilor să se aplice și la interior */
+  border-collapse: separate;    /* esențial pentru colțuri rotunde */
+  border-spacing: 0;            /* elimină spațiile care pot rupe colțurile */
+  background-color: #bbb3c7;    /* fundal general */
+  color: #0e0d0d;
+  border: 2px solid #6d4c94;    /* contur mov închis */
+}
+
+/* Aplicăm fundal consistent și la celule */
+.custom-table td,
+.custom-table th {
+  background-color: #bbb3c7 !important;
+  color: #0e0d0d !important;
+  border-color: #6d4c94 !important;
+}
+
+/* Titlu secțiune */
+.form-title {
+  color: #ffffff;
+}
+
+/* Alerte stilizate */
+.custom-alert-danger {
+  background-color: #5e1a52 !important;
+  color: #fff0f5 !important;
+  border-color: #7d2f6c !important;
+}
+
+.custom-alert-warning {
+  background-color: #6b3d6d !important;
+  color: #fdf4ff !important;
+  border-color: #a86da6 !important;
+}

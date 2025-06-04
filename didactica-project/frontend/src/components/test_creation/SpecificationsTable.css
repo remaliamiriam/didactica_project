@@ -1,24 +1,74 @@
-/* Specificații vizuale pentru tabel */
+/* Tabel cu stil mov închis și colțuri rotunjite */
+.table {
+  border-radius: 12px;
+  overflow: hidden;
+  border-collapse: separate;
+  border-spacing: 0;
+  background-color: #bbb3c7;
+  color: #0e0d0d;
+  border: 2px solid #6d4c94;
+}
+
+/* Celule de tabel */
 .table td,
 .table th {
   vertical-align: middle;
   text-align: center;
+  background-color: #bbb3c7;
+  color: #0e0d0d;
+  border-color: #6d4c94;
 }
 
-/* Evidențiere celulă activă */
+/* Header tabel */
+.table thead th {
+  background-color: #a89bb8;
+  font-weight: bold;
+  color: #1c1c1c;
+}
+
+/* Focus pe input */
 input:focus {
-  outline: 2px solid #0d6efd;
+  outline: 2px solid #d798fc;
   background-color: #e9f5ff;
 }
 
-/* Linie de total și procent */
-.table tr:last-child,
-.table tr:nth-last-child(2) {
-  background-color: #f8f9fa;
+/* Celulă activă */
+.cell-active {
+  background-color: #d6eaff !important;
+  box-shadow: inset 0 0 0 2px #d9aae2;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Input activ */
+input.active-cell {
+  background-color: #ffffff20;
+  outline: 2px solid #a84ede;
+}
+
+/* Rânduri de total și procent */
+.table tfoot tr {
+  background-color: #0e0e21;
   font-weight: bold;
+  color: #ffffff;
 }
 
 /* Buton ștergere */
 button.btn-danger {
   padding: 0.25rem 0.5rem;
+}
+
+/* Etichetă input pentru competențe */
+.form-control {
+  border-radius: 6px;
+}
+
+/* Buton adăugare */
+button.btn-primary {
+  background-color: #6f42c1;
+  border-color: #5a32a3;
+}
+
+button.btn-primary:hover {
+  background-color: #5a32a3;
+  border-color: #4b2887;
 }

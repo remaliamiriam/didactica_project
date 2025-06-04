@@ -1,0 +1,72 @@
+.test-preview-card {
+  background-color: #bbb3c7 !important;
+  color: #000;
+  padding: 2rem;
+  border-radius: 12px;
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 1rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  max-width: 900px;
+  margin: 2rem auto;
+}
+
+.test-preview-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.test-preview-header h3 {
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.question-preview {
+  padding: 1.5rem;
+  background: #a587dd;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  border: 1px solid #9ca4ac;
+}
+
+.question-preview p {
+  margin-bottom: 0.75rem;
+}
+
+/* Custom toggle purple variant */
+.btn-outline-purple {
+  background-color: #6f42c1;
+  color: #ffffff;
+  border-color: #6f42c1;
+}
+
+.btn-outline-purple:hover,
+.btn-outline-purple.active,
+.btn-outline-purple:active,
+.btn-outline-purple:focus,
+.btn-outline-purple:not(:disabled):not(.disabled).active {
+  background-color: #6f42c1;
+  color: #fff;
+  border-color: #6f42c1;
+}
+
+/* ==================== */
+/* Stiluri pentru export PDF */
+/* Elimină fundal, borduri și umbre doar când exportăm PDF */
+.pdf-export-mode .question-preview {
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  color: #000 !important;
+  font-family: Arial, sans-serif !important;
+  font-size: 12pt !important;
+}
+
+/* Pentru containerul întreg */
+.pdf-export-mode {
+  background: #fff !important;
+  color: #000 !important;
+}

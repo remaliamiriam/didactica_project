@@ -1,0 +1,35 @@
+{
+  "evaluation_instrument_development": {
+    "chapters": [
+      {
+        "title": "Capitolul 1: Proiectarea evaluării",
+        "content": "Procesul de proiectare a unei evaluări eficiente începe prin identificarea clară a competențelor specifice care trebuie evaluate. Acestea trebuie să fie conforme cu standardele educaționale naționale și să reflecte structura curriculumului în vigoare. După stabilirea competențelor, se formulează obiectivele de învățare, utilizând drept ghid taxonomia lui Bloom, care clasifică nivelurile cognitive de la simple (cunoaștere) la complexe (evaluare). Este esențială selectarea cu rigurozitate a conținutului informațional relevant din materia parcursă. Un pas esențial în această etapă este elaborarea unui tabel de specificații. Acest instrument permite o alocare echilibrată a itemilor în funcție de unitățile de conținut și nivelurile cognitive. De exemplu, pentru competența de analiză a problemelor, pot fi alocate trei itemi la nivelul de cunoaștere și doi la nivelul de aplicare, pentru a asigura o evaluare echitabilă și cuprinzătoare."
+      },
+      {
+        "title": "Capitolul 2: Construirea testului",
+        "content": "După stabilirea fundamentului teoretic, se trece la construirea efectivă a instrumentului de evaluare. O primă decizie vizează alegerea tipurilor de itemi. Aceștia pot fi itemi cu răspuns deschis, precum eseurile sau răspunsurile scurte, care favorizează exprimarea liberă și gândirea critică, sau itemi cu răspuns închis, cum ar fi alegerea multiplă, adevărat/fals sau potrivirea, care asigură obiectivitate și eficiență în corectare. Formularea itemilor trebuie să respecte cerințe stricte de claritate și precizie. Pentru itemii de tip alegere multiplă, enunțul trebuie să fie concis, iar variantele de răspuns să fie mutual exclusive și exhaustive. Se recomandă evitarea negațiilor duble și a ambiguităților. În cazul itemilor deschiși, cerințele trebuie să fie explicit formulate (de exemplu: „Argumentați în maximum 200 de cuvinte”). Un alt aspect important este stabilirea punctajului. Acesta trebuie să reflecte complexitatea itemilor, acordând mai multe puncte pentru sarcinile cognitive superioare, precum analiza sau sinteza. De asemenea, este necesară definirea unui prag minim de promovare, recomandat între 50% și 60% din punctajul total."
+      },
+      {
+        "title": "Capitolul 3: Experimentarea pre-testului",
+        "content": "Înainte de implementarea testului în mediul real, este necesară desfășurarea unei faze de pretestare, cunoscută și sub denumirea de administrare pilot. Aceasta presupune aplicarea testului pe un eșantion reprezentativ de minimum 60 de persoane, pentru a colecta date semnificative din punct de vedere statistic. Analiza rezultatelor implică calculul indicilor de dificultate (p) și de discriminare (D). Itemii cu p > 0.90 sunt considerați prea ușori, iar cei cu p < 0.10 prea dificili. În ceea ce privește discriminarea, itemii cu D < 0.20 nu reușesc să diferențieze eficient între performanțele scăzute și cele ridicate. În urma acestei analize, itemii care nu îndeplinesc cerințele de calitate trebuie revizuiți sau eliminați, mai ales dacă prezintă ambiguități sau nu contribuie la o evaluare obiectivă."
+      },
+      {
+        "title": "Capitolul 4: Realizarea evaluării finale",
+        "content": "Odată ce testul a fost validat, se poate trece la etapa de aplicare propriu-zisă. Este esențial ca administrarea evaluării să se realizeze în condiții standardizate, oferind tuturor participanților același timp de rezolvare și aceleași instrucțiuni. Corectarea răspunsurilor trebuie să urmeze un barem standardizat, pentru a asigura echitatea. În cazul itemilor deschiși, se recomandă utilizarea rubricilor de evaluare, care stabilesc criterii clare de apreciere a răspunsurilor, reducând subiectivitatea în notare."
+      },
+      {
+        "title": "Capitolul 5: Interpretarea și raportarea rezultatelor",
+        "content": "După corectarea testelor, rezultatele trebuie analizate și interpretate în mod riguros. Punctajele brute se transformă în note standardizate, utilizând scoruri Z sau percentile, pentru a permite comparații obiective între participanți. Pe baza acestor rezultate se pot crea profile de competențe, reprezentate grafic, oferind o imagine de ansamblu asupra nivelului de pregătire. Ulterior, se întocmesc rapoarte individuale care includ atât poziția relativă a elevului în grup, cât și recomandări personalizate pentru îmbunătățirea performanțelor și remedierea lacunelor identificate."
+      }
+    ],
+    "key_concepts": {
+      "validity": "Gradul în care instrumentul măsoară ceea ce intenționează să măsoare.",
+      "reliability": "Consistența rezultatelor la aplicări repetate.",
+      "discrimination_power": "Capacitatea itemilor de a diferenția între subiecții cu niveluri diferite de cunoștințe."
+    },
+    "references": [
+      "Bloom, B.S. (1956). Taxonomy of Educational Objectives.",
+      "ANR (2009). Ghid de construire a instrumentelor de evaluare."
+    ]
+  }
+}

@@ -1,23 +1,72 @@
 [
-    {
-      "question": "Care dintre următoarele verbe este potrivit pentru un obiectiv cognitiv de nivel inferior?",
-      "options": ["Analizează", "Explică", "Memorează", "Evaluează"],
-      "correctAnswer": "Memorează"
-    },
-    {
-      "question": "Ce caracteristică este esențială pentru un obiectiv bine formulat?",
-      "options": ["Generalitate", "Ambiguitate", "Claritate", "Subiectivitate"],
-      "correctAnswer": "Claritate"
-    },
-    {
-      "question": "Un exemplu de obiectiv greșit este:",
-      "options": [
-        "Elevul va enumera cele 5 simțuri",
-        "Elevul va înțelege importanța simțurilor",
-        "Elevul va recunoaște simțurile",
-        "Elevul va numi simțurile"
-      ],
-      "correctAnswer": "Elevul va înțelege importanța simțurilor"
-    }
-  ]
-  
+  {
+    "question": "Care dintre următoarele verbe este potrivit pentru un obiectiv cognitiv de nivel inferior?",
+    "options": ["Proiectează", "Compară", "Memorează", "Analizează"],
+    "correctAnswer": "Memorează"
+  },
+  {
+    "question": "Ce caracteristică este esențială pentru un obiectiv bine formulat?",
+    "options": ["Generalitate", "Ambiguitate", "Claritate", "Subiectivitate"],
+    "correctAnswer": "Claritate"
+  },
+  {
+    "question": "Un exemplu de obiectiv greșit este:",
+    "options": [
+      "Elevul va enumera principalele componente ale unui calculator",
+      "Elevul va înțelege funcționarea memoriei RAM",
+      "Elevul va identifica tipuri de software de sistem",
+      "Elevul va descrie procesul de boot al unui sistem de operare"
+    ],
+    "correctAnswer": "Elevul va înțelege funcționarea memoriei RAM"
+  },
+  {
+    "question": "Care dintre următoarele formulări este cea mai potrivită pentru un obiectiv educațional clar?",
+    "options": [
+      "Elevul va înțelege rețelele de calculatoare",
+      "Elevul va ști cum funcționează internetul",
+      "Elevul va descrie tipurile de topologii de rețea",
+      "Elevul va aprecia rolul rețelelor în societate"
+    ],
+    "correctAnswer": "Elevul va descrie tipurile de topologii de rețea"
+  },
+  {
+    "question": "Ce verb este cel mai potrivit pentru un obiectiv de nivel superior, aplicabil în informatică?",
+    "options": [
+      "Memorează",
+      "Redă",
+      "Proiectează",
+      "Enumeră"
+    ],
+    "correctAnswer": "Proiectează"
+  },
+  {
+    "question": "Care dintre următoarele exemple reflectă un obiectiv măsurabil în domeniul algoritmicii?",
+    "options": [
+      "Elevul va înțelege algoritmii de sortare",
+      "Elevul va explica diferențele dintre algoritmii Bubble Sort și Quick Sort",
+      "Elevul va aprecia importanța eficienței algoritmilor",
+      "Elevul va ști despre complexitatea algoritmică"
+    ],
+    "correctAnswer": "Elevul va explica diferențele dintre algoritmii Bubble Sort și Quick Sort"
+  },
+  {
+    "question": "Un obiectiv de tip afectiv este reflectat cel mai bine de care dintre următoarele formulări?",
+    "options": [
+      "Elevul va recunoaște componentele unei plăci de bază",
+      "Elevul va simți entuziasm pentru rezolvarea problemelor de programare",
+      "Elevul va descrie etapele compilării unui program",
+      "Elevul va analiza structura unui fișier JSON"
+    ],
+    "correctAnswer": "Elevul va simți entuziasm pentru rezolvarea problemelor de programare"
+  },
+  {
+    "question": "Care formulare de obiectiv include un criteriu de evaluare clar?",
+    "options": [
+      "Elevul va realiza un site web simplu în HTML în maximum 30 de minute",
+      "Elevul va înțelege noțiunea de HTML",
+      "Elevul va fi capabil să lucreze în HTML",
+      "Elevul va aprecia importanța HTML-ului în dezvoltarea web"
+    ],
+    "correctAnswer": "Elevul va realiza un site web simplu în HTML în maximum 30 de minute"
+  }
+]

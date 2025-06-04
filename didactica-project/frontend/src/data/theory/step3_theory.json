@@ -1,39 +1,64 @@
-{
-    "stepTitle": "Formularea și selecția itemilor",
-    "steps": [
-      {
-        "id": 1,
-        "title": "Ce înseamnă aceasta?",
-        "description": "După ce ai stabilit tipurile de întrebări, este timpul să creezi efectiv itemii. Fiecare întrebare trebuie să fie formulată clar, să fie relevantă pentru obiectivele testului și să nu aibă ambiguități."
-      },
-      {
-        "id": 2,
-        "title": "Fii clar și concis",
-        "description": "Întrebările trebuie să fie clare și ușor de înțeles. Evită folosirea unui limbaj prea complicat sau a frazelor lungi."
-      },
-      {
-        "id": 3,
-        "title": "Evită ambiguitățile",
-        "description": "Asigură-te că întrebările nu pot fi interpretate în moduri diferite și că cer un răspuns specific."
-      },
-      {
-        "id": 4,
-        "title": "Verifică validitatea",
-        "description": "Fiecare întrebare trebuie să contribuie la măsurarea obiectivelor testului. Dacă o întrebare nu măsoară ce trebuie, elimin-o sau reformuleaz-o."
-      },
-      {
-        "id": 5,
-        "title": "Exemple de itemi",
-        "example": {
-          "correct": "Care este capitala Franței?",
-          "incorrect": "Ce părere ai despre Franța și Paris?"
-        }
-      },
-      {
-        "id": 6,
-        "title": "Evită întrebările capcană",
-        "description": "Întrebările prea dificile sau cu răspunsuri înșelătoare nu reflectă corect nivelul de cunoștințe și pot frustra elevii. Scopul testului este evaluarea onestă, nu inducerea în eroare."
+{ 
+  "stepTitle": "Formularea și selecția itemilor",
+  "steps": [
+    {
+      "id": 1,
+      "title": "Ce înseamnă aceasta?",
+      "description": "După ce ai stabilit tipurile de întrebări, este timpul să creezi efectiv itemii. Fiecare întrebare trebuie să fie formulată clar, să fie relevantă pentru obiectivele testului și să nu aibă ambiguități. De exemplu, dacă obiectivul este testarea cunoștințelor despre rețele de calculatoare, întrebările trebuie să reflecte acest subiect.",
+      "checklist": [
+        "Întrebarea este legată de obiectivele testului?",
+        "Folosește termeni relevanți pentru subiectul informatic?",
+        "Este ușor de înțeles pentru elevul țintă?"
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Fii clar și concis",
+      "description": "Întrebările trebuie să fie clare și ușor de înțeles. Evită folosirea unui limbaj prea complicat sau a frazelor lungi. Exemplu clar: 'Ce înseamnă IP?' este mai eficient decât 'Definește protocolul de identificare a dispozitivelor într-o rețea de tip TCP/IP'.",
+      "checklist": [
+        "Evitați jargonul inutil sau tehnic fără explicație.",
+        "Evitați frazele lungi sau formulate greoi.",
+        "Întrebarea poate fi înțeleasă fără consultarea altor surse?"
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Evită ambiguitățile",
+      "description": "Asigură-te că întrebările nu pot fi interpretate în moduri diferite și că cer un răspuns specific. De exemplu, întreabă 'Ce extensie are un fișier HTML?' în loc de 'Ce tip de fișiere se folosesc pe web?', care este vag.",
+      "checklist": [
+        "Există o singură interpretare logică a întrebării?",
+        "Se poate răspunde la întrebare fără presupuneri?",
+        "Formularea evită generalizările și termeni vagi?"
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Verifică validitatea",
+      "description": "Fiecare întrebare trebuie să contribuie la măsurarea obiectivelor testului. Dacă obiectivul este să testezi înțelegerea funcționării unui algoritm, nu întreba despre istoria informaticii.",
+      "checklist": [
+        "Itemul e aliniat cu competențele din programă?",
+        "Evaluarea cunoștințelor este specifică și aplicabilă?",
+        "Evită itemii care verifică informații irelevante pentru test."
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Exemple de itemi",
+      "example": {
+        "correct": "Ce rol are memoria RAM într-un calculator?",
+        "incorrect": "Ce părere ai despre calculatoarele moderne?"
       }
-    ]
-  }
-  
+     
+    },
+    {
+      "id": 6,
+      "title": "Evită întrebările capcană",
+      "description": "Întrebările prea dificile sau cu răspunsuri înșelătoare nu reflectă corect nivelul de cunoștințe și pot frustra elevii. De exemplu, nu folosi o întrebare precum 'Ce protocol de rețea nu este utilizat niciodată în mod implicit în nicio aplicație modernă?', deoarece induce în eroare prin formulare ambiguă.",
+      "checklist": [
+        "Întrebarea e clară, fără trucuri sau ambiguități?",
+        "Se evaluează cunoștințe reale, nu capacitatea de a ghici?",
+        "Se evită formulări înșelătoare sau exagerat de tehnice?"
+      ]
+    }
+  ]
+}

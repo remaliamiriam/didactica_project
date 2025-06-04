@@ -1,0 +1,87 @@
+.questions-form-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 2rem;
+  background-color: transparent;
+}
+
+.left-column,
+.right-column {
+  flex: 1 1 100%;
+}
+
+@media (min-width: 992px) {
+  .left-column,
+  .right-column {
+    flex: 1 1 48%;
+  }
+}
+
+form .form-group,
+.mb-3 {
+  margin-bottom: 1.5rem;
+}
+
+.card {
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid #dee2e6;
+  background-color: #bbb3c7;
+  border-radius: 0.5rem;
+}
+
+.card-title {
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.question-card {
+  padding: 1rem;
+  margin-bottom: 1rem;
+  background-color: #bbb3c7 !important;
+  border: 1px solid #e2e6ea;
+  border-radius: 0.5rem;
+  color: #141414;
+}
+
+.question-card strong {
+  font-size: 1rem;
+}
+
+.question-card small {
+  color: #1e2020;
+}
+
+.question-card .btn {
+  margin-top: 0.5rem;
+}
+
+.nav-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2.5rem;
+}
+
+.nav-buttons .btn {
+  min-width: 120px;
+}
+
+.alert {
+  margin-top: 0.5rem;
+}
+
+.row {
+  margin-bottom: 1rem;
+}
+
+/* New style for the manual evaluation message */
+.manual-evaluation-message {
+  color: white !important;
+  display: block;
+  padding: 8px;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}

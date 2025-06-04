@@ -1,4 +1,4 @@
-/* index.css */
+ /* index.css */
 
 /* Setăm fundalul animat pe întregul document */
 html, body {
@@ -208,4 +208,4 @@ body.light-mode .glass-panel {
 
 .bloom-node {
   padding-left: 0.5rem;
-}
+} 

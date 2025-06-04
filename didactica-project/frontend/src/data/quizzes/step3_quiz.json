@@ -12,12 +12,12 @@
     {
       "question": "Care dintre următoarele este un exemplu de întrebare bine formulată?",
       "options": [
-        "Ce părere ai despre Franța și Paris?",
-        "Care este capitala Franței?",
-        "Ce simți când te gândești la Paris?",
-        "Este Parisul un oraș frumos?"
-      ],
-      "correctAnswer": "Care este capitala Franței?"
+      "Ce părere ai despre calculatoare și internet?",
+      "Ce extensie are un fișier salvat în Word?",
+      "Cum te simți când folosești un e-mail?",
+      "Este bine să joci jocuri pe calculator?"
+    ],
+       "correctAnswer": "Ce extensie are un fișier salvat în Word?"
     },
     {
       "question": "Ce înseamnă ca un item să aibă validitate?",

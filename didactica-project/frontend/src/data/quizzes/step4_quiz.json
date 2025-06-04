@@ -15,14 +15,14 @@
       "correctAnswer": "Proporțional cu dificultatea itemilor"
     },
     {
-      "question": "Care dintre următoarele întrebări ar trebui să primească mai multe puncte?",
-      "options": [
-        "Care este capitala Spaniei?",
-        "Numără până la 10",
-        "Explică diferențele dintre mit și legendă",
-        "Alege verbul din propoziție"
-      ],
-      "correctAnswer": "Explică diferențele dintre mit și legendă"
+       "question": "Care dintre următoarele întrebări ar trebui să primească mai multe puncte?",
+        "options": [
+          "Care este tipul de date pentru un număr întreg în C++?",
+          "Scrie o buclă care afișează numerele de la 1 la 10 în C++",
+          "Explică diferențele dintre pointeri și referințe în C++",
+          "Identifică cuvântul-cheie dintr-o declarație de funcție în C++"
+        ],
+        "correctAnswer": "Explică diferențele dintre pointeri și referințe în C++"
     }
   ]
   

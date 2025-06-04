@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { Table, Form, Button, InputGroup, OverlayTrigger, Tooltip } from 'react-bootstrap';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
+import { Table, Form, Button, InputGroup, OverlayTrigger, Tooltip, Alert } from 'react-bootstrap';
 import './SpecificationsTable.css';
 
 const cognitiveObjectives = [
@@ -11,23 +11,24 @@ const cognitiveObjectives = [
   'Evaluare',
 ];
 
-const SpecificationsTable = ({ competencies, onSpecificationsChange, onNextStep }) => {
+const SpecificationsTable = ({ competencies, onSpecificationsChange, onNextStep, onBack }) => {
   const [tableData, setTableData] = useState({});
   const [newCompetency, setNewCompetency] = useState('');
   const [activeCell, setActiveCell] = useState({ row: 0, col: 0 });
+  const [error, setError] = useState('');
   const tableRef = useRef(null);
 
-  // Focus management
+  const rowKeys = useMemo(() => Object.keys(tableData), [tableData]);
+  const maxRow = rowKeys.length - 1;
+  const maxCol = cognitiveObjectives.length - 1;
+
   useEffect(() => {
     if (tableRef.current) {
       const activeElement = tableRef.current.querySelector('.cell-active input');
-      if (activeElement) {
-        activeElement.focus();
-      }
+      if (activeElement) activeElement.focus();
     }
   }, [activeCell]);
 
-  // Initialize table data
   useEffect(() => {
     if (competencies && competencies.length > 0) {
       const initialData = {};
@@ -47,7 +48,7 @@ const SpecificationsTable = ({ competencies, onSpecificationsChange, onNextStep 
   }, [competencies]);
 
   const handleInputFocus = (rowKey, colIndex) => {
-    const rowNum = parseInt(rowKey.replace('C', '')) - 1;
+    const rowNum = rowKeys.indexOf(rowKey);
     setActiveCell({ row: rowNum, col: colIndex });
   };
 
@@ -67,25 +68,34 @@ const SpecificationsTable = ({ competencies, onSpecificationsChange, onNextStep 
   };
 
   const handleAddRow = () => {
-    if (!newCompetency.trim()) return;
-    const newKey = `C${Object.keys(tableData).length + 1}`;
+    const trimmed = newCompetency.trim();
+    if (!trimmed) {
+      setError('Eticheta nu poate fi goală.');
+      return;
+    }
+
+    const exists = Object.values(tableData).some(r => r.label === trimmed);
+    if (exists) {
+      setError('Această competență este deja adăugată.');
+      return;
+    }
+
+    setError('');
+    const newKey = `C${rowKeys.length + 1}`;
     const updated = {
       ...tableData,
       [newKey]: {
         name: newKey,
-        label: newCompetency,
+        label: trimmed,
         objectives: Array(6).fill(0),
         locked: false,
       },
     };
+
     setTableData(updated);
     setNewCompetency('');
     onSpecificationsChange(updated);
-    // Set focus to the new row's first cell
-    setActiveCell({ 
-      row: Object.keys(updated).length - 1, 
-      col: 0 
-    });
+    setActiveCell({ row: rowKeys.length, col: 0 });
   };
 
   const handleDeleteRow = (key) => {
@@ -93,27 +103,22 @@ const SpecificationsTable = ({ competencies, onSpecificationsChange, onNextStep 
     delete updated[key];
     setTableData(updated);
     onSpecificationsChange(updated);
-    // Adjust active cell if needed
     if (activeCell.row >= Object.keys(updated).length) {
       setActiveCell(prev => ({
         row: Math.max(0, prev.row - 1),
-        col: prev.col
+        col: prev.col,
       }));
     }
   };
 
   const handleKeyDown = (e) => {
     const { row, col } = activeCell;
-    const rowKeys = Object.keys(tableData);
-    const maxRow = rowKeys.length - 1;
-    const maxCol = cognitiveObjectives.length - 1;
 
-    // Prevent default for arrow keys to avoid page scrolling
     if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'Tab', 'Enter'].includes(e.key)) {
       e.preventDefault();
     }
 
-    switch(e.key) {
+    switch (e.key) {
       case 'ArrowUp':
         if (row > 0) setActiveCell({ row: row - 1, col });
         break;
@@ -128,14 +133,12 @@ const SpecificationsTable = ({ competencies, onSpecificationsChange, onNextStep 
         break;
       case 'Tab':
         if (e.shiftKey) {
-          // Shift+Tab - move left or up
           if (col > 0) {
             setActiveCell({ row, col: col - 1 });
           } else if (row > 0) {
             setActiveCell({ row: row - 1, col: maxCol });
           }
         } else {
-          // Tab - move right or down
           if (col < maxCol) {
             setActiveCell({ row, col: col + 1 });
           } else if (row < maxRow) {
@@ -144,28 +147,13 @@ const SpecificationsTable = ({ competencies, onSpecificationsChange, onNextStep 
         }
         break;
       case 'Enter':
-        // Move down or to next row
-        if (row < maxRow) {
-          setActiveCell({ row: row + 1, col });
-        }
+        if (row < maxRow) setActiveCell({ row: row + 1, col });
         break;
       case 'Home':
-        if (e.ctrlKey) {
-          // Ctrl+Home - first cell
-          setActiveCell({ row: 0, col: 0 });
-        } else {
-          // Home - first column
-          setActiveCell({ row, col: 0 });
-        }
+        setActiveCell(e.ctrlKey ? { row: 0, col: 0 } : { row, col: 0 });
         break;
       case 'End':
-        if (e.ctrlKey) {
-          // Ctrl+End - last cell
-          setActiveCell({ row: maxRow, col: maxCol });
-        } else {
-          // End - last column
-          setActiveCell({ row, col: maxCol });
-        }
+        setActiveCell(e.ctrlKey ? { row: maxRow, col: maxCol } : { row, col: maxCol });
         break;
       case 'PageUp':
         setActiveCell({ row: 0, col });
@@ -174,10 +162,9 @@ const SpecificationsTable = ({ competencies, onSpecificationsChange, onNextStep 
         setActiveCell({ row: maxRow, col });
         break;
       default:
-        // Handle number input
         if (/^[0-9]$/.test(e.key)) {
           const currentValue = tableData[rowKeys[row]]?.objectives[col] || 0;
-          const newValue = parseInt(`${currentValue}${e.key}`);
+          const newValue = parseInt(`${currentValue}${e.key}`, 10);
           handleInputChange(rowKeys[row], col, newValue);
         }
     }
@@ -209,122 +196,121 @@ const SpecificationsTable = ({ competencies, onSpecificationsChange, onNextStep 
           onKeyDown={(e) => e.key === 'Enter' && handleAddRow()}
           aria-label="Adăugare competență nouă"
         />
-        <Button
-          variant="primary"
-          onClick={handleAddRow}
-          aria-label="Adaugă rând nou"
-        >
+        <Button variant="primary" onClick={handleAddRow}>
           Adaugă rând
         </Button>
       </InputGroup>
+
+      {error && <Alert variant="danger">{error}</Alert>}
 
       <div className="table-responsive">
         <Table bordered onKeyDown={handleKeyDown} tabIndex={0}>
           <thead>
             <tr>
-              <th rowSpan="2" scope="col">Competențe / Unități de conținut</th>
-              <th colSpan={6} className="text-center" scope="colgroup">
-                Obiectivele învățării (cognitive)
-              </th>
-              <th rowSpan="2" className="text-center" scope="col">Acțiuni</th>
+              <th rowSpan="2">Competențe / Unități</th>
+              <th colSpan={6} className="text-center">Obiective cognitive</th>
+              <th rowSpan="2" className="text-center">Acțiuni</th>
             </tr>
             <tr>
-              {cognitiveObjectives.map((objective, i) => (
-                <th key={i} scope="col">{objective}</th>
-              ))}
+              {cognitiveObjectives.map((obj, i) => <th key={i}>{obj}</th>)}
             </tr>
           </thead>
           <tbody>
-            {Object.entries(tableData).map(([key, row], rowIdx) => (
-              <tr key={key}>
-                <th scope="row">
-                  {row.locked ? (
-                    row.label
-                  ) : (
-                    <Form.Control
-                      type="text"
-                      value={row.label}
-                      onChange={(e) => handleLabelChange(key, e.target.value)}
-                      aria-label={`Editare etichetă pentru rândul ${rowIdx + 1}`}
-                    />
-                  )}
-                </th>
-                {row.objectives.map((val, colIdx) => {
-                  const isActive = activeCell.row === rowIdx && activeCell.col === colIdx;
-                  return (
-                    <td 
-                      key={colIdx} 
-                      className={isActive ? 'cell-active' : ''}
-                      aria-label={`${row.label}, ${cognitiveObjectives[colIdx]}`}
-                    >
+            {rowKeys.map((key, rowIdx) => {
+              const row = tableData[key];
+              return (
+                <tr key={key}>
+                  <th>
+                    {row.locked ? row.label : (
                       <Form.Control
-                        type="number"
-                        min="0"
-                        value={val}
-                        onChange={(e) => handleInputChange(key, colIdx, e.target.value)}
-                        onFocus={() => handleInputFocus(key, colIdx)}
-                        className={isActive ? 'active-cell' : ''}
-                        tabIndex={isActive ? 0 : -1}
-                        aria-label={`Număr întrebări pentru ${cognitiveObjectives[colIdx]}`}
+                        type="text"
+                        value={row.label}
+                        onChange={(e) => handleLabelChange(key, e.target.value)}
                       />
-                    </td>
-                  );
-                })}
-                <td className="text-center">
-                  {!row.locked && (
-                    <Button
-                      variant="danger"
-                      size="sm"
-                      onClick={() => handleDeleteRow(key)}
-                      aria-label={`Șterge rândul ${rowIdx + 1}`}
-                    >
-                      Șterge
-                    </Button>
-                  )}
-                </td>
-              </tr>
-            ))}
-            <tr className="summary-row">
-              <th scope="row"><strong>Total</strong></th>
-              {cognitiveObjectives.map((_, colIdx) => (
-                <td key={colIdx}><strong>{getColumnTotal(colIdx)}</strong></td>
-              ))}
-              <td></td>
-            </tr>
-            <tr className="summary-row">
-              <th scope="row"><strong>%</strong></th>
-              {cognitiveObjectives.map((_, colIdx) => (
-                <td key={colIdx}>
-                  <strong>{getPercentage(getColumnTotal(colIdx), totalItems)}</strong>
-                </td>
-              ))}
-              <td></td>
-            </tr>
+                    )}
+                  </th>
+                  {row.objectives.map((val, colIdx) => {
+                    const isActive = activeCell.row === rowIdx && activeCell.col === colIdx;
+                    return (
+                      <td key={colIdx} className={isActive ? 'cell-active' : ''}>
+                        <Form.Control
+                          type="number"
+                          min="0"
+                          value={val}
+                          onChange={(e) => handleInputChange(key, colIdx, e.target.value)}
+                          onFocus={() => handleInputFocus(key, colIdx)}
+                          tabIndex={isActive ? 0 : -1}
+                        />
+                      </td>
+                    );
+                  })}
+                  <td className="text-center">
+                    {!row.locked && (
+                      <Button
+                        variant="danger"
+                        size="sm"
+                        onClick={() => handleDeleteRow(key)}
+                        aria-label={`Șterge rândul ${row.label}`}
+                      >
+                        Șterge
+                      </Button>
+                    )}
+                  </td>
+                </tr>
+              );
+            })}
           </tbody>
+          <tfoot>
+            <tr>
+              <th>Total</th>
+              {cognitiveObjectives.map((_, i) => (
+                <th key={i} className="text-center">
+                  {getColumnTotal(i)}
+                </th>
+              ))}
+              <th></th>
+            </tr>
+            <tr>
+              <th>Procentaj</th>
+              {cognitiveObjectives.map((_, i) => (
+                <th key={i} className="text-center">
+                  {getPercentage(getColumnTotal(i), totalItems)}
+                </th>
+              ))}
+              <th></th>
+            </tr>
+          </tfoot>
         </Table>
       </div>
 
-      <div className="d-flex justify-content-end mt-4">
-        <OverlayTrigger
-          placement="top"
-          overlay={
-            totalItems === 0 ? (
-              <Tooltip id="tooltip-disabled">Completează tabelul pentru a continua</Tooltip>
-            ) : <></>
-          }
-        >
-          <span className="d-inline-block">
-            <Button
-              variant="success"
-              onClick={onNextStep}
-              disabled={totalItems === 0}
-              style={totalItems === 0 ? { pointerEvents: 'none' } : {}}
-              aria-label="Continuă la pasul următor"
-            >
-              Continuă
-            </Button>
-          </span>
-        </OverlayTrigger>
+      <div className="d-flex justify-content-between mt-4">
+        <Button variant="secondary" onClick={onBack}>
+          Înapoi
+        </Button>
+
+        {totalItems === 0 ? (
+          <OverlayTrigger
+            placement="top"
+            overlay={<Tooltip id="tooltip-disabled">Completează tabelul pentru a continua</Tooltip>}
+          >
+            <span className="d-inline-block">
+              <Button
+                variant="success"
+                disabled
+                style={{ pointerEvents: 'none' }}
+              >
+                Continuă
+              </Button>
+            </span>
+          </OverlayTrigger>
+        ) : (
+          <Button
+            variant="success"
+            onClick={onNextStep}
+          >
+            Continuă
+          </Button>
+        )}
       </div>
     </div>
   );

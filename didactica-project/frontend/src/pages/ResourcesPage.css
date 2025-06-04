@@ -1,0 +1,146 @@
+/* ResourcesPage.css */
+
+.resources-container {
+  min-height: 100vh;
+  padding: 1.5rem;
+  background-color: transparent;
+}
+
+.glass-panel {
+  max-width: 80rem;
+  width: 100%;
+  padding: 2rem;
+  margin: 0 auto;
+  overflow-y: auto;
+  max-height: 90vh;
+  background: rgba(255, 255, 255, 0.226);
+  backdrop-filter: blur(10px);
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: left; /* Asigură alinierea implicită la stânga */
+}
+
+.glass-panel h1 {
+  font-size: 1.875rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+/* Stiluri pentru cuprins */
+.toc-container {
+  margin-bottom: 2rem;
+}
+
+.toc-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #f472b6;
+  margin-bottom: 0.5rem;
+}
+
+.toc-list {
+  list-style-type: disc;
+  list-style-position: inside;
+  color: #f9a8d4;
+}
+
+.toc-item {
+  margin-bottom: 0.25rem;
+}
+
+.toc-link {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.toc-link:hover {
+  text-decoration: underline;
+}
+
+/* Stiluri pentru capitole */
+.chapter-section {
+  margin-bottom: 2.5rem;
+  scroll-margin-top: 5rem;
+}
+
+.chapter-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #60a5fa;
+  margin-bottom: 1rem;
+}
+
+.chapter-content {
+  color: #b4c5e7;
+}
+
+.chapter-paragraph {
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+/* Stiluri pentru concepte cheie */
+.key-concepts-section {
+  margin-bottom: 2.5rem;
+  scroll-margin-top: 5rem;
+}
+
+.key-concepts-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #34d399;
+  margin-bottom: 0.75rem;
+}
+
+.key-concepts-list {
+  list-style-type: disc;
+  list-style-position: inside;
+  color: #e5e7eb;
+}
+
+.key-concept-item {
+  margin-bottom: 0.75rem;
+}
+
+/* Stiluri pentru bibliografie */
+.references-section {
+  scroll-margin-top: 5rem;
+}
+
+.references-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #a78bfa;
+  margin-bottom: 0.75rem;
+}
+
+.references-list {
+  list-style-type: disc;
+  list-style-position: inside;
+  color: #e5e7eb;
+}
+
+.reference-item {
+  margin-bottom: 0.5rem;
+}
+
+/* Scrollbar personalizat */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
+}

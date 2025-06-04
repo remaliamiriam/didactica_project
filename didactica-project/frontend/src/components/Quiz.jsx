@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react"; 
 import { Card, Button, ProgressBar } from "react-bootstrap";
 import { motion, AnimatePresence } from "framer-motion";
 import Confetti from "react-confetti";
@@ -28,6 +28,12 @@ const Quiz = ({ step, onFinish }) => {
       try {
         const quizModule = await quizFiles[step]();
         setQuestions(quizModule.default);
+        setCurrentIdx(0);
+        setSelectedOption(null);
+        setAnswered(false);
+        setScore(0);
+        setShowResult(false);
+        setShowConfetti(false);
       } catch (error) {
         console.error("Eroare la încărcarea quizului:", error);
       }
@@ -58,6 +64,7 @@ const Quiz = ({ step, onFinish }) => {
         setSelectedOption(null);
         setAnswered(false);
       } else {
+        // Final quiz, arată scor și eventual confetti
         const finalScore = score + (idx === correctIndex ? 1 : 0);
         setScore(finalScore);
         setShowResult(true);
@@ -70,6 +77,7 @@ const Quiz = ({ step, onFinish }) => {
 
   const handleFinish = () => {
     setShowConfetti(false);
+    // Apelează onFinish cu scor și total întrebări
     onFinish(score, questions.length);
   };
 

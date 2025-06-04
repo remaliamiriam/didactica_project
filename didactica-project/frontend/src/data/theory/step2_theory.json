@@ -1,40 +1,130 @@
 {
-    "stepTitle": "2. Stabilirea tipurilor de itemi",
-    "steps": [
-      {
-        "id": 1,
-        "title": "Itemi cu răspuns deschis",
-        "description": "Acest tip de item permite evaluarea competențelor complexe, având răspunsuri libere care pot fi scurte sau lungi.",
-        "example": {
-          "correct": "Explică în câteva propoziții ce înseamnă teorema lui Pitagora.",
-          "incorrect": "Care este capitala Franței?"
-        },
-        "examples": [
-          "„Explică în câteva propoziții ce înseamnă teorema lui Pitagora.”",
-          "„Descrie procesul fotosintezei.”"
-        ],
-        "checklist": [
-          "Evaluați gândirea critică",
-          "Permite feedback detaliat"
-        ]
+  "stepTitle": "2. Stabilirea tipurilor de itemi",
+  "steps": [
+    {
+      "id": 1,
+      "title": "Itemi cu răspuns formulat laconic",
+      "description": "Solicită un răspuns extrem de scurt, de obicei un cuvânt sau o expresie.",
+      "example": {
+        "correct": "Ce înseamnă HTML? – HyperText Markup Language",
+        "incorrect": "Scrie un eseu despre evoluția limbajului C++."
       },
-      {
-        "id": 2,
-        "title": "Itemi cu răspuns închis",
-        "description": "Acest tip de item este corectat rapid și este bun pentru testarea cunoștințelor de bază.",
-        "example": {
-          "correct": "Este corectă următoarea afirmație? (Adevărat/Fals) – 'Toți câinii sunt mamifere.'",
-          "incorrect": "Ce capitală are țara X?"
-        },
-        "examples": [
-          "„Este corectă următoarea afirmație? (Adevărat/Fals) – 'Toți câinii sunt mamifere.'”",
-          "„Care dintre următoarele afirmații este corectă? A) X B) Y C) Z D) W”"
-        ],
-        "checklist": [
-          "Corectare rapidă",
-          "Bun pentru verificări scurte"
-        ]
-      }
-    ]
-  }
-  
+      "examples": [
+        "„Ce semnificație are prescurtarea CPU?”",
+        "„Ce înseamnă DNS?”"
+      ],
+      "checklist": [
+        "Verifică cunoștințe de bază",
+        "Corectare rapidă",
+        "Risc de ambiguitate scăzut"
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Itemi cu răspuns scurt",
+      "description": "Solicită o explicație scurtă, dar mai amplă decât un singur cuvânt.",
+      "example": {
+        "correct": "Explică în 1-2 propoziții ce este un algoritm.",
+        "incorrect": "Scrie numele unui limbaj de programare folosit pentru dezvoltarea aplicațiilor web."
+      },
+      "examples": [
+        "„Descrie în câteva propoziții rolul sistemului de operare.”",
+        "„Explică diferența dintre memorie RAM și memorie ROM.”"
+      ],
+      "checklist": [
+        "Evaluare concisă a înțelegerii",
+        "Necesită claritate în exprimare"
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Itemi cu răspuns lung (eseu)",
+      "description": "Solicită dezvoltarea unui răspuns extins pentru evaluarea competențelor superioare.",
+      "example": {
+        "correct": "Redactează un eseu privind impactul rețelelor sociale asupra confidențialității datelor personale.",
+        "incorrect": "Ce este un IP?"
+      },
+      "examples": [
+        "„Analizează impactul inteligenței artificiale în domeniul securității cibernetice.”",
+        "„Argumentează dacă limbajul Python este potrivit pentru dezvoltarea aplicațiilor de inteligență artificială.”"
+      ],
+      "checklist": [
+        "Evaluare a gândirii critice",
+        "Dificil de corectat automat",
+        "Permite exprimarea liberă"
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Itemi cu alegere multiplă",
+      "description": "Elevul alege un răspuns corect dintre 3 sau mai multe variante oferite.",
+      "example": {
+        "correct": "Care dintre următoarele este un limbaj de programare? A) HTML B) JSON C) Java D) CSS",
+        "incorrect": "Ce este un server?"
+      },
+      "examples": [
+        "„Ce face un compilator? A) Execută codul direct B) Traduce codul sursă în cod mașină C) Optimizează rețeaua D) Afișează interfața grafică”",
+        "„Ce extensie au fișierele JavaScript? A) .html B) .css C) .js D) .py”"
+      ],
+      "checklist": [
+        "Evaluare rapidă",
+        "Ușor de automatizat",
+        "Fidelitate crescută dacă este bine formulat"
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Itemi cu alegere duală (Adevărat/Fals)",
+      "description": "Elevul alege între două opțiuni: adevărat/fals, da/nu, acord/dezacord.",
+      "example": {
+        "correct": "HTML este un limbaj de programare. (Fals)",
+        "incorrect": "Care este cel mai folosit limbaj de programare?"
+      },
+      "examples": [
+        "„Un switch funcționează la nivelul rețelei. (Adevărat/Fals)”",
+        "„Python este un limbaj tipizat static. (Adevărat/Fals)”"
+      ],
+      "checklist": [
+        "Rapid de aplicat și corectat",
+        "Risc de ghicire mare",
+        "Ideal pentru validarea unor concepte clare"
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Itemi de tip pereche (potrivire)",
+      "description": "Elevul trebuie să asocieze concepte din două liste, în mod corect.",
+      "example": {
+        "correct": "Potrivește conceptele: A) RAM – memorie volatilă, B) SSD – stocare rapidă, C) CPU – unitate de procesare.",
+        "incorrect": "Scrie un program complet în Python."
+      },
+      "examples": [
+        "„Potrivește: A) Python – limbaj de programare, B) HTML – marcare, C) SQL – baze de date”",
+        "„Alege corespondența: A) .py – Python, B) .html – HTML, C) .css – CSS”"
+      ],
+      "checklist": [
+        "Ușor de evaluat automat",
+        "Bun pentru testarea relațiilor între concepte",
+        "Poate deveni prea ușor dacă lista este mică"
+      ]
+    },
+    {
+      "id": 7,
+      "title": "Itemi cu răspunsuri multiple",
+      "description": "Elevul trebuie să selecteze mai multe variante corecte dintre cele oferite.",
+      "example": {
+        "correct": "Selectează toate limbajele de programare: A) Python B) HTML C) Java D) CSS (Răspuns: A, C)",
+        "incorrect": "Ce limbaj este folosit pentru crearea stilurilor?"
+      },
+      "examples": [
+        "„Bifează toate aplicațiile de tip browser: A) Chrome B) Word C) Firefox D) Excel (Răspuns: A, C)”",
+        "„Selectează toate dispozitivele de intrare: A) Tastatură B) Monitor C) Mouse D) Imprimantă (Răspuns: A, C)”"
+      ],
+      "checklist": [
+        "Evaluare mai detaliată decât alegerea simplă",
+        "Risc de confuzie crescut",
+        "Utile pentru testarea cunoștințelor complexe"
+      ]
+    }
+  ]
+}

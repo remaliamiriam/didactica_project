@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useUser } from '../hooks/UserContext';
+import { useUser } from '../hooks/UserContext';  // import context
 import './NicknameModal.css'; 
 
 const NicknameModal = ({ onClose }) => {
@@ -8,7 +8,7 @@ const NicknameModal = ({ onClose }) => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const navigate = useNavigate();
-  const { setUser } = useUser();
+  const { setUser } = useUser();  // folosește contextul
 
   const handleLogin = async () => {
     setError('');
@@ -20,9 +20,7 @@ const NicknameModal = ({ onClose }) => {
     try {
       const response = await fetch('http://localhost:4000/users/login', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         credentials: 'include',
         body: JSON.stringify({ nickname, password }),
       });
@@ -31,7 +29,7 @@ const NicknameModal = ({ onClose }) => {
 
       if (response.ok && data.user) {
         localStorage.setItem('user', JSON.stringify(data.user));
-        setUser(data.user);
+        setUser(data.user);  // actualizează contextul
         navigate('/profile-home');
       } else {
         setError(data.error || 'Nickname sau parolă incorecte.');
@@ -45,7 +43,6 @@ const NicknameModal = ({ onClose }) => {
   return (
     <div className="glass-modal">
       <div className="modal-content">
-     
         <h2>Autentificare</h2>
         <input
           type="text"
@@ -59,7 +56,6 @@ const NicknameModal = ({ onClose }) => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        
         {error && <p className="error-text">{error}</p>}
         <div className="modal-buttons mt-3">
            <button onClick={onClose} className="ms-2">Închide</button>
@@ -71,8 +67,7 @@ const NicknameModal = ({ onClose }) => {
             Creează unul aici
           </a>
         </p>
-      
-    </div>
+      </div>
     </div>
   );
 };

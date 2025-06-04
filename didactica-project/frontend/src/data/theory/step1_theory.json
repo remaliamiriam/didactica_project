@@ -6,8 +6,8 @@
         "title": "Ce este un obiectiv operațional?",
         "description": "Obiectivele operaționale definesc clar ce va învăța elevul și ce comportamente vor fi evaluate. Acestea trebuie formulate din perspectiva elevului, nu a profesorului.",
         "example": {
-          "correct": "Elevul va putea explica teoria evoluției.",
-          "incorrect": "Profesorul va explica teoria evoluției."
+           "correct": "Elevul va putea scrie un algoritm care sortează o listă de numere.",
+            "incorrect": "Profesorul va preda sortarea listelor."
         }
       },
       {
@@ -46,8 +46,8 @@
         "title": "Definește comportamentul observabil",
         "description": "Comportamentul descris în obiectiv trebuie să poată fi observat și măsurat.",
         "example": {
-          "correct": "Elevul va rezolva ecuații de gradul 2 aplicând formula corespunzătoare.",
-          "incorrect": "Elevul va înțelege ecuațiile de gradul 2."
+          "correct": "Elevul va implementa în C++ un algoritm de calcul al minimului dintr-o listă de numere întregi.",
+          "incorrect": "Elevul va înțelege algoritmii de căutare."
         }
       },
       {
@@ -55,9 +55,9 @@
         "title": "Adaugă condițiile de realizare",
         "description": "Specifică în ce condiții elevul va îndeplini sarcina: materiale, timp, context etc.",
         "examples": [
-          "având la dispoziție o foaie de lucru și un calculator",
-          "în 10 minute",
-          "fără ajutor extern"
+          "utilizând compilatorul Code::Blocks",
+          "în 15 minute",
+          "fără utilizarea internetului"
         ]
       },
       {
@@ -65,9 +65,9 @@
         "title": "Stabilește criterii de performanță",
         "description": "Definește clar ce înseamnă succesul. Poate fi exprimat prin precizie, viteză, număr de răspunsuri corecte etc.",
         "examples": [
-          "cel puțin 80% răspunsuri corecte",
-          "cel puțin 3 soluții posibile justificate",
-          "timp de realizare sub 10 minute"
+          "programul rulează fără erori",
+          "sunt tratate toate cazurile de intrare",
+          "cel puțin 80% dintre soluții sunt corecte"
         ]
       },
       {
@@ -85,7 +85,7 @@
       {
         "id": 7,
         "title": "Exemplu complet de obiectiv",
-        "example": "La sfârșitul lecției, elevul va fi capabil să rezolve ecuații de gradul 2, aplicând formula generală, în mai puțin de 10 minute, cu un grad de corectitudine de cel puțin 90%."
+       "example": "La sfârșitul lecției, elevul va fi capabil să scrie în C++ un algoritm de ordonare prin selecție, utilizând un vector de 10 numere întregi, în maximum 15 minute, cu o rată de corectitudine de cel puțin 90%."
       }
     ]
   }

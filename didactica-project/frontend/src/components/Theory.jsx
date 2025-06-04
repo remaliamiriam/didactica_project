@@ -1,8 +1,8 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import "./Theory.css";
-import BloomAnimated from "././BloomDiagram";
-import confetti from "canvas-confetti";
+import BloomAnimated from "./BloomDiagram";
+import ChecklistDiagram from "./ChecklistDiagram";
 
 const TOTAL_STEPS = 7;
 
@@ -16,37 +16,12 @@ const theoryFiles = {
   7: () => import("../data/theory/step7_theory.json"),
 };
 
-function fireConfettiCorners() {
-  const duration = 2 * 1000;
-  const animationEnd = Date.now() + duration;
-  const defaults = { startVelocity: 70, spread: 360, ticks: 100, zIndex: 999 };
-
-  const interval = setInterval(function () {
-    const timeLeft = animationEnd - Date.now();
-    if (timeLeft <= 0) return clearInterval(interval);
-
-    // Bottom left
-    confetti({
-      ...defaults,
-      particleCount: 80,
-      origin: { x: 0, y: 1 },
-    });
-
-    // Bottom right
-    confetti({
-      ...defaults,
-      particleCount: 80,
-      origin: { x: 1, y: 1 },
-    });
-  }, 250);
-}
-
 function Theory({ stepKey, onLoaded, onNextStep }) {
   const [content, setContent] = useState(null);
   const [loading, setLoading] = useState(true);
   const panelRef = useRef();
 
-  const progressPercent = Math.round((stepKey / Object.keys(theoryFiles).length) * 100);
+  const progressPercent = Math.round((stepKey / TOTAL_STEPS) * 100);
 
   useEffect(() => {
     const loadData = async () => {
@@ -67,44 +42,8 @@ function Theory({ stepKey, onLoaded, onNextStep }) {
     loadData();
   }, [stepKey, onLoaded]);
 
-  // Declanșăm confetti-ul la ultimul pas
-  useEffect(() => {
-    if (stepKey === TOTAL_STEPS) {
-      fireConfettiCorners();
-    }
-  }, [stepKey]);
-
   if (loading) return <p className="text-light">Se încarcă...</p>;
   if (content?.error) return <p className="text-danger">{content.error}</p>;
-
-  if (stepKey === TOTAL_STEPS) {
-    return (
-      <div className="theory-content" ref={panelRef}>
-        <motion.div
-          initial={{ scale: 0.8, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 0.6 }}
-          className="glass-panel p-5 mt-5 text-center"
-        >
-          <motion.h2
-            initial={{ scale: 0.5, rotate: -10, opacity: 0 }}
-            animate={{ scale: 1, rotate: 0, opacity: 1 }}
-            transition={{ duration: 0.6 }}
-            className="mb-4"
-          >
-            🎉 Felicitări! Ai parcurs toate etapele 🎉
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
-          >
-            Poți reveni oricând pentru a repeta teoria sau testele. Succes mai departe!
-          </motion.p>
-        </motion.div>
-      </div>
-    );
-  }
 
   return (
     <div className="theory-content" ref={panelRef}>
@@ -131,7 +70,6 @@ function Theory({ stepKey, onLoaded, onNextStep }) {
           transition={{ duration: 0.4 }}
         >
           <h2 className="mb-4">{content.stepTitle}</h2>
-
           {content.steps?.map((step, index) => (
             <motion.div
               key={step.id || index}
@@ -148,13 +86,13 @@ function Theory({ stepKey, onLoaded, onNextStep }) {
                 <div className="mb-3">
                   {step.example.correct && (
                     <>
-                      <strong className="text-success">Exemplu corect:</strong>
+                      <strong style={{ color: "#80ff00" }}>Exemplu corect:</strong>
                       <p>{step.example.correct}</p>
                     </>
                   )}
                   {step.example.incorrect && (
                     <>
-                      <strong className="text-danger">Exemplu greșit:</strong>
+                      <strong style={{ color: "#FC00FE" }}>Exemplu greșit:</strong>
                       <p>{step.example.incorrect}</p>
                     </>
                   )}
@@ -177,19 +115,15 @@ function Theory({ stepKey, onLoaded, onNextStep }) {
 
               {step.taxonomy && stepKey === 1 && (
                 <div className="mb-4">
-                  <h6 className="fw-bold text-info mb-3">🌟 Taxonomia Bloom (diagramă animată)</h6>
+                  <h6 className="fw-bold text-info mb-3">🌟 Taxonomia Bloom </h6>
                   <BloomAnimated />
                 </div>
               )}
 
               {Array.isArray(step.checklist) && (
                 <div className="mb-3">
-                  <strong>Checklist:</strong>
-                  <ul>
-                    {step.checklist.map((item, idx) => (
-                      <li key={idx}>{item}</li>
-                    ))}
-                  </ul>
+                  <h6 className="fw-bold text-info mb-3">Checklist : </h6>
+                  <ChecklistDiagram items={step.checklist} />
                 </div>
               )}
             </motion.div>
@@ -203,7 +137,7 @@ function Theory({ stepKey, onLoaded, onNextStep }) {
               className="btn btn-outline-info"
               onClick={onNextStep}
             >
-              Următorul pas →
+              {stepKey === TOTAL_STEPS ? "Finalizează →" : "Următorul pas →"}
             </motion.button>
           </div>
         </motion.div>

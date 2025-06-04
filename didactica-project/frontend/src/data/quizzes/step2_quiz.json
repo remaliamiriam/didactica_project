@@ -9,8 +9,8 @@
       "options": ["Evaluarea competențelor complexe", "Permite formularea de argumente", "Se corectează rapid", "Oferă feedback detaliat"],
       "correctAnswer": "Se corectează rapid"
     },
-    {
-      "question": "Ce tip de întrebare este: „Explică procesul fotosintezei”?",
+   {
+      "question": "Ce tip de întrebare este: „Explică modul de funcționare al memoriei RAM”?",
       "options": ["Item cu răspuns închis", "Item de tip adevărat/fals", "Item cu alegere multiplă", "Item cu răspuns deschis"],
       "correctAnswer": "Item cu răspuns deschis"
     },
@@ -22,12 +22,12 @@
     {
       "question": "Un exemplu de item cu răspuns închis este:",
       "options": [
-        "Descrie trăsăturile unui personaj din romanul X.",
-        "Care dintre următoarele afirmații este corectă? A) X B) Y C) Z D) W",
-        "Explică în câteva propoziții o lege fizică.",
-        "Argumentează opinia ta despre tema poeziei."
+        "Descrie rolul unui sistem de operare într-un calculator.",
+        "Care dintre următoarele extensii este specifică fișierelor HTML? A) .exe B) .jpg C) .html D) .mp3",
+        "Explică în câteva propoziții funcționarea unui algoritm de sortare.",
+        "Argumentează importanța securității cibernetice în viața de zi cu zi."
       ],
-      "correctAnswer": "Care dintre următoarele afirmații este corectă? A) X B) Y C) Z D) W"
+      "correctAnswer": "Care dintre următoarele extensii este specifică fișierelor HTML? A) .exe B) .jpg C) .html D) .mp3"
     }
   ]
   
