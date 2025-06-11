@@ -134,3 +134,10 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+# Personal project excludes
+node_modules/
+.env
+src/
+public/
+tests/
