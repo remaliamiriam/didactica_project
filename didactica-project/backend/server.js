@@ -67,6 +67,7 @@ app.use((req, res, next) => {
   console.log(`Cerere necunoscută către: ${req.method} ${req.originalUrl}`);
   res.status(404).send('Rută inexistentă');
 });*/
+
 const express = require('express');
 const path = require('path');
 const fs = require('fs');
@@ -74,8 +75,8 @@ const fs = require('fs');
 const app = express();
 const port = process.env.PORT || 3000;
 
-// Servește fișierele din ./dist (acum copiate din frontend)
-const distPath = path.join(__dirname, 'dist');
+// dist e în frontend/dist
+const distPath = path.join(__dirname, '../frontend/dist');
 
 console.log(' Serving static files from:', distPath);
 console.log(' dist folder exists:', fs.existsSync(distPath));
