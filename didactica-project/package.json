@@ -3,12 +3,13 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "main": "server.js",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "start": "vite"
+    "start": "node server.js"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.49.4",
@@ -38,7 +39,7 @@
     "vite": "^6.2.0"
   },
   "description": "O aplicație educațională interactivă...",
-  "main": "eslint.config.js",
+ 
   "keywords": [],
   "author": "",
   "license": "ISC"
