@@ -67,7 +67,6 @@ app.use((req, res, next) => {
   console.log(`Cerere necunoscută către: ${req.method} ${req.originalUrl}`);
   res.status(404).send('Rută inexistentă');
 });*/
-
 const express = require('express');
 const path = require('path');
 const fs = require('fs');
@@ -75,33 +74,28 @@ const fs = require('fs');
 const app = express();
 const port = process.env.PORT || 3000;
 
-// Calea către folderul frontend/dist
-const distPath = path.join(__dirname, '../frontend/dist');
+// Servește fișierele din ./dist (acum copiate din frontend)
+const distPath = path.join(__dirname, 'dist');
 
-// Debug: Verifică dacă folderul dist există
 console.log(' Serving static files from:', distPath);
 console.log(' dist folder exists:', fs.existsSync(distPath));
 
-// Servește fișierele statice (HTML, JS, CSS etc.)
 app.use(express.static(distPath));
 
-// Rută de test pentru a verifica că serverul pornește corect
 app.get('/test', (req, res) => {
-  res.send(' Server is working!');
+  res.send('✅ Server is working!');
 });
 
-// Pentru toate celelalte rute, returnează index.html (pentru frontend SPA)
 app.get('*', (req, res) => {
   const indexPath = path.join(distPath, 'index.html');
   if (fs.existsSync(indexPath)) {
     res.sendFile(indexPath);
   } else {
-    console.error(' index.html NOT FOUND at:', indexPath);
+    console.error('❌ index.html NOT FOUND at:', indexPath);
     res.status(500).send('index.html missing');
   }
 });
 
-// Pornire server
 app.listen(port, () => {
-  console.log(` Server started on port ${port}`);
+  console.log(`✅ Server started on port ${port}`);
 });
