@@ -68,14 +68,18 @@ app.use((req, res, next) => {
   res.status(404).send('Rută inexistentă');
 });*/
 
-const express = require('express');
-const path = require('path');
-const fs = require('fs');
+import express from 'express';
+import path from 'path';
+import fs from 'fs';
+import { fileURLToPath } from 'url';
+
+// __dirname în ES module:
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
 const port = process.env.PORT || 3000;
 
-// dist e în frontend/dist
 const distPath = path.join(__dirname, '../frontend/dist');
 
 console.log(' Serving static files from:', distPath);
@@ -84,7 +88,7 @@ console.log(' dist folder exists:', fs.existsSync(distPath));
 app.use(express.static(distPath));
 
 app.get('/test', (req, res) => {
-  res.send('✅ Server is working!');
+  res.send(' Server is working!');
 });
 
 app.get('*', (req, res) => {
@@ -92,11 +96,11 @@ app.get('*', (req, res) => {
   if (fs.existsSync(indexPath)) {
     res.sendFile(indexPath);
   } else {
-    console.error('❌ index.html NOT FOUND at:', indexPath);
+    console.error(' index.html NOT FOUND at:', indexPath);
     res.status(500).send('index.html missing');
   }
 });
 
 app.listen(port, () => {
-  console.log(`✅ Server started on port ${port}`);
+  console.log(` Server started on port ${port}`);
 });
