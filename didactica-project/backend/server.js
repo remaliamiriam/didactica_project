@@ -9,7 +9,7 @@ import jwt from 'jsonwebtoken';
 import step1Routes from './routes/step1.js';
 import leaderboardRoutes from './routes/leaderboard.js';
 import statisticsRoutes from './routes/statistics.js';
-import progressRoutes from './routes/progress.js'; // ✅ Import nou
+import progressRoutes from './routes/progress.js'; 
 
 const supabase = createClient(
   process.env.SUPABASE_URL,
@@ -46,24 +46,24 @@ const authenticateToken = (req, res, next) => {
   });
 };
 
-// 🔗 Conectăm rutele
+// Conectăm rutele
 app.use('/users', usersRoutes);
 app.use('/api/leaderboard', leaderboardRoutes);
 app.use('/api/statistics', statisticsRoutes);
 app.use('/api/step1', step1Routes);
-app.use('/api/progress', progressRoutes); // ✅ Nou
+app.use('/api/progress', progressRoutes); 
 
-// Exemplu de rută protejată
+// rută protejată
 app.get('/secure-data', authenticateToken, (req, res) => {
   res.json({ message: `Salut ${req.user.nickname}, ai acces la datele secrete!` });
 });
 
 // Start server
 app.listen(PORT, () => {
-  console.log(`✅ Serverul rulează pe http://localhost:${PORT}`);
+  console.log(`Serverul rulează pe http://localhost:${PORT}`);
 });
 
 app.use((req, res, next) => {
-  console.log(`➡️ Cerere necunoscută către: ${req.method} ${req.originalUrl}`);
+  console.log(`Cerere necunoscută către: ${req.method} ${req.originalUrl}`);
   res.status(404).send('Rută inexistentă');
 });
