@@ -1,5 +1,7 @@
 # Didactica Project
 
+🌐 **Live demo:** [https://didactica-project.onrender.com](https://didactica-project.onrender.com)
+
 **Didactica Project** este o aplicație educațională interactivă creată cu **React**, care ajută utilizatorii să parcurgă etape pentru elaborarea și evaluarea testelor de cunoștințe.  
 
 ⚠️ *Proiectul este în dezvoltare activă — anumite componente există dar nu sunt încă utilizate.*
