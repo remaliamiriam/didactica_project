@@ -1,6 +1,6 @@
 import React from "react";
 import theoryData from "../data/resurseTheory.json";
-import "./ResourcesPage.css"; // Importul noului fișier CSS
+import "./ResourcesPage.css";
 
 const ResourcesPage = () => {
   const data = theoryData.evaluation_instrument_development;
@@ -23,9 +23,10 @@ const ResourcesPage = () => {
 
   return (
     <div className="resources-container">
-      <div className="glass-panel custom-scrollbar">
-        <h1>Dezvoltarea instrumentului de evaluare</h1>
+      {/* Titlul mutat în afara glass-panel-ului */}
+      <h1 className="resources-title">Dezvoltarea instrumentului de evaluare</h1>
 
+      <div className="glass-panel custom-scrollbar">
         {/* Cuprins */}
         <nav className="toc-container">
           <h2 className="toc-title">Cuprins</h2>

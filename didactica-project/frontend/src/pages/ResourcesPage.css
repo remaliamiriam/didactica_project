@@ -26,7 +26,15 @@
   margin-bottom: 1.5rem;
   text-align: center;
 }
-
+.resources-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 1.5rem;
+  text-align: left;
+  position: relative;
+  padding-left: 1.5rem;
+}
 /* Stiluri pentru cuprins */
 .toc-container {
   margin-bottom: 2rem;

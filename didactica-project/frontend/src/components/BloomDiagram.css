@@ -6,11 +6,10 @@
     padding: 3rem 2rem;
     overflow-x: auto;
     background: #0e0e21;
-    gap: 2rem;
-  }
+    gap: 2rem; }
   
   .timeline-line {
-    position: absolute;
+  position: absolute;
     top: 50%;
     left: 0;
     right: 0;
@@ -63,7 +62,7 @@
   }
   
   /* Scrollbar custom */
-.custom-scrollbar::-webkit-scrollbar {
+ .custom-scrollbar::-webkit-scrollbar {
     height: 10px; /* or width: 10px; for vertical */
   }
   
@@ -84,4 +83,3 @@
     scrollbar-width: thin;
     scrollbar-color: #a84ede transparent;
   }
-  
