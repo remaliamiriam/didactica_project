@@ -12,19 +12,12 @@
 
 /* Cardul principal (glass panel) */
 .glass-panel {
-  background: inherit; /* moștenește backgroundul */
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-radius: 20px;
-  padding: 0;
-  width: 100%;
-  max-width: 1500px; /* mai lat decât înainte */
-  max-height: 85vh;
-  overflow: hidden;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-  color: inherit;
-  display: flex;
-  flex-direction: column;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border-radius: 1rem;
+  padding: 3.5rem;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  color: white;
 }
 
 
