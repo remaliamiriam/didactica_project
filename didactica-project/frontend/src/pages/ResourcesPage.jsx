@@ -8,8 +8,13 @@ const ResourcesPage = () => {
   const handleScroll = (e, id) => {
     e.preventDefault();
     const section = document.getElementById(id);
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth", block: "start" });
+    const panel = document.querySelector('.glass-panel');
+    if (section && panel) {
+      const sectionTop = section.offsetTop;
+      panel.scrollTo({
+        top: sectionTop - 20, // offset mic ca să nu fie lipit de margine
+        behavior: "smooth",
+      });
     }
   };
 
@@ -23,11 +28,9 @@ const ResourcesPage = () => {
 
   return (
     <div className="resources-container">
-      {/* Titlul mutat în afara glass-panel-ului */}
       <h1 className="resources-title">Dezvoltarea instrumentului de evaluare</h1>
 
       <div className="glass-panel custom-scrollbar">
-        {/* Cuprins */}
         <nav className="toc-container">
           <h2 className="toc-title">Cuprins</h2>
           <ul className="toc-list">
@@ -63,13 +66,8 @@ const ResourcesPage = () => {
           </ul>
         </nav>
 
-        {/* Capitole */}
         {data.chapters.map((chapter, idx) => (
-          <section 
-            id={`chapter-${idx}`} 
-            key={idx} 
-            className="chapter-section"
-          >
+          <section id={`chapter-${idx}`} key={idx} className="chapter-section">
             <h2 className="chapter-title">{chapter.title}</h2>
             <div className="chapter-content">
               {formatParagraphs(chapter.content)}
@@ -77,7 +75,6 @@ const ResourcesPage = () => {
           </section>
         ))}
 
-        {/* Concepte cheie */}
         <section id="key-concepts" className="key-concepts-section">
           <h2 className="key-concepts-title">Concepte cheie</h2>
           <ul className="key-concepts-list">
@@ -89,7 +86,6 @@ const ResourcesPage = () => {
           </ul>
         </section>
 
-        {/* Bibliografie */}
         <section id="references" className="references-section">
           <h2 className="references-title">Bibliografie</h2>
           <ul className="references-list">
