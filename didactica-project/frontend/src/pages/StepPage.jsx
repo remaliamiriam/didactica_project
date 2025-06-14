@@ -18,11 +18,11 @@ function fireConfetti() {
     return Math.random() * (max - min) + min;
   }
 
-  const interval = setInterval(function () {
+  const interval = setInterval(() => {
     const timeLeft = animationEnd - Date.now();
-
     if (timeLeft <= 0) {
-      return clearInterval(interval);
+      clearInterval(interval);
+      return;
     }
 
     const particleCount = 80 * (timeLeft / duration);
@@ -57,8 +57,6 @@ const StepPage = () => {
   };
 
   const handleQuizFinish = (score, total) => {
-    console.log(`Scor: ${score} din ${total}`);
-
     if (currentStep === TOTAL_STEPS) {
       fireConfetti();
       setMode("congrats");
@@ -82,14 +80,13 @@ const StepPage = () => {
 
   return (
     <div className="step-container">
-      <Card ref={cardRef} className="glass-panel mx-auto">
+      <Card ref={cardRef} className="glass-panel">
         <Card.Body className="scrollable-content custom-scrollbar">
           {mode !== "congrats" && (
             <Card.Title as="h4" className="card-title">
               Etapa {currentStep}
             </Card.Title>
           )}
-
           <div className="content-section">
             <AnimatePresence mode="wait" initial={false}>
               {mode === "theory" && (
@@ -116,10 +113,7 @@ const StepPage = () => {
                   exit={{ opacity: 0, y: -20 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <Quiz
-                    step={currentStep}
-                    onFinish={handleQuizFinish}
-                  />
+                  <Quiz step={currentStep} onFinish={handleQuizFinish} />
                 </motion.div>
               )}
 
@@ -148,7 +142,6 @@ const StepPage = () => {
                   >
                     Poți reveni oricând pentru a repeta teoria sau testele. Succes mai departe!
                   </motion.p>
-
                   <div className="d-flex justify-content-center gap-3 mt-4">
                     <button className="btn btn-primary" onClick={() => navigate("/resources")}>
                       Mergi la Resurse

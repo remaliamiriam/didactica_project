@@ -1,34 +1,36 @@
-/* StepPage.css */
-
-/* Containerul principal al paginii */
 .step-container {
   display: flex;
   justify-content: center;
   align-items: flex-start;
   min-height: 100vh;
   padding: 40px 20px;
-  background: inherit; /* opțional, fundal închis */
+  background: inherit;
 }
 
-/* Cardul principal (glass panel) */
 .glass-panel {
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(10px);
-  border-radius: 1rem;
-  padding: 3.5rem;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  color: white;
+  background: inherit;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 20px;
+  padding: 0;
+  width: 90%;
+  max-width: 1500px;
+  min-width: 300px;
+  max-height: 85vh;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
 }
 
-
-/* Conținut scrollabil din interiorul cardului */
 .scrollable-content {
   padding: 2rem;
   overflow-y: auto;
   max-height: 85vh;
 }
 
-/* Titlul etapei */
 .card-title {
   color: white;
   text-align: center;
@@ -37,7 +39,6 @@
   margin-bottom: 1.5rem;
 }
 
-/* Secțiunea de conținut teorie/quiz */
 .content-section {
   text-align: left;
   color: white;
@@ -46,7 +47,6 @@
   padding: 0 10px;
 }
 
-/* Scrollbar custom */
 .custom-scrollbar::-webkit-scrollbar {
   width: 10px;
 }
@@ -58,5 +58,21 @@
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
   background-color: #a84ede;
- border: 2px solid transparent;
+  border: 2px solid transparent;
+}
+
+@media (min-width: 1920px) {
+  .glass-panel {
+    width: 70%;
+  }
+}
+
+@media (max-width: 768px) {
+  .scrollable-content {
+    padding: 1rem;
+  }
+
+  .card-title {
+    font-size: 1.5rem;
+  }
 }
